@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should render the login page 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <Text>
+      Login
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <Text>
+      Login
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;
