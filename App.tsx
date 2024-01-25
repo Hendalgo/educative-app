@@ -6,18 +6,17 @@
  */
 
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import {SafeAreaView} from 'react-native';
 import Router from './app/src/routes/Router';
 import 'react-native-gesture-handler';
+import {styles} from './app/src/styles';
 
 function App(): React.JSX.Element {
-
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
       <Router />
     </SafeAreaView>
   );
 }
-
 
 export default App;
