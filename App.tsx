@@ -8,9 +8,6 @@ import MainStack from './src/navigation/MainStack';
 import LoadingScreen from './src/screens/LoadingScreen';
 import {useColorScheme} from 'react-native';
 import {darkTheme, lightTheme} from './src/styles/themes';
-if (__DEV__) {
-  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'))
-}
 
 function App(): React.JSX.Element {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
