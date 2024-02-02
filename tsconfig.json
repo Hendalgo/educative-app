@@ -7,15 +7,15 @@
     "module": "ES2022",
     "baseUrl": "./",
     "paths": {
-      "components/*": ["./src/components/*"],
-      "assets/*": ["./src/assets/*"],
-      "screens/*": ["./src/screens/*"],
-      "navigation/*": ["./src/navigation/*"],
-      "utils/*": ["./src/utils/*"],
-      "store/*": ["./src/store/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "api/*": ["./src/api/*"],
-      "types/*": ["./src/types/*"]
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@navigation/*": ["./src/navigation/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@store/*": ["./src/store/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@api/*": ["./src/api/*"],
+      "@types/*": ["./src/types/*"]
     }
   },
 }
