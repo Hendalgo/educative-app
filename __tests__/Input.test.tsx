@@ -9,27 +9,31 @@ describe('Input', () => {
   it('renders correctly', () => {
     //create ref type TextInput
     const { getByPlaceholderText } = 
-    render(<Input label="Email" placeholder="Enter your email" ref={ref} />);
+    render(<Input label="Email" placeholder="Enter your email" innerRef={ref} props={{}}/>);
     expect(getByPlaceholderText('Enter your email')).toBeTruthy();
   });
   it('label renders correctly', () => {
-    const { getByText } = render(<Input label="Email" ref={ref} />);
+    const { getByText } = render(<Input label="Email" innerRef={ref}  props={{}}/>);
     expect(getByText('Email')).toBeTruthy();
   });
   it('label does not render if not passed', () => {
-    const { queryByText } = render(<Input ref={ref}/>);
+    const { queryByText } = render(<Input innerRef={ref} props={{}}/>);
     expect(queryByText('Email')).toBeNull();
   });
   it('placeholder does not render if not passed', () => {
-    const { queryByPlaceholderText } = render(<Input ref={ref} />);
+    const { queryByPlaceholderText } = render(<Input innerRef={ref} props={{}}/>);
     expect(queryByPlaceholderText('Enter your email')).toBeNull();
   });
   it('button renders without placeholder', () => {
-    const { queryByPlaceholderText } = render(<Input label="Email" ref={ref} />);
+    const { queryByPlaceholderText } = render(<Input label="Email" innerRef={ref} props={{}}/>);
     expect(queryByPlaceholderText('Enter your email')).toBeNull();
   });
   it('icon renders correctly', () => {
-    const { getByTestId } = render(<Input label="Email" iconSrc="@assets/images/logo.png" ref={ref} />);
+    const { getByTestId } = render(<Input label="Email" iconSrc="@assets/images/logo.png" innerRef={ref} props={{}}/>);
     expect(getByTestId('icon')).toBeTruthy();
+  });
+  it('change keyboard type', () => {
+    const { getByPlaceholderText } = render(<Input label="Email" placeholder="Enter your email" keyboard="numeric" innerRef={ref} props={{}}/>);
+    expect(getByPlaceholderText('Enter your email').props.keyboardType).toBe('numeric');
   });
 });

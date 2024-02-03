@@ -16,10 +16,12 @@ interface InputProps extends TextInputProps {
   label?: string;
   placeholder?: string;
   iconSrc?: string;
-  ref: React.RefObject<TextInput>;
+  innerRef: any;
+  props: TextInputProps;
+  keyboard?: "default" | "numeric" | "email-address" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined;
 }
 
-const Input = ({ label, placeholder, iconSrc, ref}: InputProps): React.JSX.Element => {
+const Input = ({ label, placeholder, iconSrc, keyboard = 'default', innerRef, ...props}: InputProps): React.JSX.Element => {
   const { colors } = useTheme();
 
   return (
@@ -48,7 +50,9 @@ const Input = ({ label, placeholder, iconSrc, ref}: InputProps): React.JSX.Eleme
           colors.neutral1200
         }
         placeholder={placeholder}
-        ref={ref}
+        ref={innerRef}
+        keyboardType={keyboard}
+        {...props}
       />
     </View>
   );
