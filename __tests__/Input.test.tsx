@@ -1,70 +1,56 @@
 //Test to check if the input component renders correctly
-import React from 'react';
-import {render} from '@testing-library/react-native';
+import React, {useState} from 'react';
+import {fireEvent, render} from '@testing-library/react-native';
 import Input from '@components/Input';
-import {TextInput} from 'react-native';
 import EmailIcon from '@assets/icons/EmailIcon';
 
+
+const TestInput = ({label, placeholder, keyboard = 'default'}: {label: string, placeholder: string, keyboard?:any}) => {
+  const [value, setValue] = useState('');
+  return (
+    <Input
+      label={label}
+      placeholder={placeholder}
+      value={value}
+      keyboard={keyboard}
+      props={{}}
+      Icon={EmailIcon}
+      onChangeText={(text) => setValue(text)}
+    />
+  );
+}
+
 describe('Input', () => {
-  const ref: React.RefObject<TextInput> = React.createRef();
   it('renders correctly', () => {
     //create ref type TextInput
-    const {getByPlaceholderText} = render(
-      <Input
-        label="Email"
-        placeholder="Enter your email"
-        innerRef={ref}
-        props={{}}
-      />,
-    );
+    const {getByPlaceholderText} = render(<TestInput label='Email' placeholder='Enter your email' />);
     expect(getByPlaceholderText('Enter your email')).toBeTruthy();
   });
   it('label renders correctly', () => {
-    const {getByText} = render(
-      <Input label="Email" innerRef={ref} props={{}} />,
-    );
+    const {getByText} = render(<TestInput label='Email' placeholder='Enter your email'/>);
     expect(getByText('Email')).toBeTruthy();
   });
   it('label does not render if not passed', () => {
-    const {queryByText} = render(<Input innerRef={ref} props={{}} />);
+    const {queryByText} = render(<TestInput label='' placeholder='Enter your email'/>);
     expect(queryByText('Email')).toBeNull();
   });
   it('placeholder does not render if not passed', () => {
-    const {queryByPlaceholderText} = render(
-      <Input innerRef={ref} props={{}} />,
-    );
+    const {queryByPlaceholderText} = render(<TestInput label='Email' placeholder='' />);
     expect(queryByPlaceholderText('Enter your email')).toBeNull();
   });
   it('icon renders correctly', () => {
-    const {getByTestId} = render(
-      <Input
-        label="Email"
-        placeholder="Enter your email"
-        Icon={EmailIcon}
-        innerRef={ref}
-        props={{}}
-      />,
-    );
+    const {getByTestId} = render(<TestInput label='Email' placeholder='Enter your email'/>);
     expect(getByTestId('icon')).toBeTruthy();
   });
-  it('button renders without placeholder', () => {
-    const {queryByPlaceholderText} = render(
-      <Input label="Email" innerRef={ref} props={{}} />,
-    );
-    expect(queryByPlaceholderText('Enter your email')).toBeNull();
-  });
   it('change keyboard type', () => {
-    const {getByPlaceholderText} = render(
-      <Input
-        label="Email"
-        placeholder="Enter your email"
-        keyboard="numeric"
-        innerRef={ref}
-        props={{}}
-      />,
-    );
+    const {getByPlaceholderText} = render(<TestInput label='Email' placeholder='Enter your email' keyboard="numeric"/>);
     expect(getByPlaceholderText('Enter your email').props.keyboardType).toBe(
       'numeric',
     );
+  });
+  it('user can type in the input', () => {
+    const {getByPlaceholderText} = render(<TestInput label='Email' placeholder='Enter your email'/>);
+    fireEvent.changeText(getByPlaceholderText('Enter your email'), 'hello');
+    expect(getByPlaceholderText('Enter your email').props.value).toBe('hello');
   });
 });
