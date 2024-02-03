@@ -1,13 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {StrictMode, useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native';
-import styles from './src/styles';
 import {NavigationContainer} from '@react-navigation/native';
 import 'react-native-gesture-handler';
-import AuthStack from './src/navigation/AuthStack';
-import MainStack from './src/navigation/MainStack';
+import MainStack from './src/navigations/MainStack';
 import LoadingScreen from './src/screens/LoadingScreen';
 import {useColorScheme} from 'react-native';
 import {darkTheme, lightTheme} from './src/styles/themes';
+import AuthScreen from '@screens/AuthScreen';
 
 function App(): React.JSX.Element {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -21,7 +20,7 @@ function App(): React.JSX.Element {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <StrictMode>
       <NavigationContainer
         theme={colorScheme === 'dark' ? darkTheme : lightTheme}>
         {isLoading ? (
@@ -29,10 +28,10 @@ function App(): React.JSX.Element {
         ) : isAuthenticated ? (
           <MainStack />
         ) : (
-          <AuthStack />
+          <AuthScreen/>
         )}
       </NavigationContainer>
-    </SafeAreaView>
+    </StrictMode>
   );
 }
 
