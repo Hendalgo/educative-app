@@ -18,6 +18,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
   },
+  header: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 20,
+    fontFamily: 'Poppins-Bold',
+  },
 });
 
 export default styles;
