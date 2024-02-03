@@ -1,7 +1,36 @@
-import {DefaultTheme} from '@react-navigation/native';
+import {DefaultTheme, Theme} from '@react-navigation/native';
 
-export const lightTheme = {
-  ...DefaultTheme,
+export interface CustomColors{
+  primary1600: string;
+  primary1200: string;
+  primary800: string;
+  primary400: string;
+  primary000: string;
+  primaryDark400: string;
+  primaryDark800: string;
+
+  neutral000: string;
+  neutral300: string;
+  neutral600: string;
+  neutral900: string;
+  neutral1200: string;
+  neutral1500: string;
+  neutral1800: string;
+  primary: string;
+  background: string;
+  card: string;
+  text: string;
+  border: string;
+  notification: string;
+  black: string;
+}
+
+export interface CustomTheme extends Theme {
+  colors: CustomColors;
+}
+
+export const lightTheme:CustomTheme = {
+  dark: false,
   colors: {
     ...DefaultTheme.colors,
     primary: '#006DEC',
@@ -20,13 +49,12 @@ export const lightTheme = {
     neutral1200: '#8F8F8F',
     neutral1500: '#707070',
     neutral1800: '#020A13',
-
     black: '#191919',
   },
 };
 
-export const darkTheme = {
-  ...DefaultTheme,
+export const darkTheme:CustomTheme = {
+  dark: true,
   colors: {
     ...DefaultTheme.colors,
     primary: '#006DEC',
@@ -45,7 +73,6 @@ export const darkTheme = {
     neutral1200: '#8F8F8F',
     neutral1500: '#707070',
     neutral1800: '#020A13',
-
     black: '#191919',
   },
 };

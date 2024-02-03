@@ -15,9 +15,6 @@ function App(): React.JSX.Element {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-      if (true) {
-        setIsAuthenticated(true);
-      }
     }, 2000);
   }, []);
 

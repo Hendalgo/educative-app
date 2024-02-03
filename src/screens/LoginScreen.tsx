@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text} from 'react-native';
 import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
@@ -7,17 +7,44 @@ import {Animated} from 'react-native';
 import useTranslateYAnimation from '@hooks/useTranslateYAnimation';
 import Input from '@components/Input';
 import EmailIcon from '@assets/icons/EmailIcon';
+import { CustomColors, CustomTheme } from 'src/styles/themes';
 
 const LoginScreen = (): React.JSX.Element => {
-  const {colors} = useTheme();
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  //@ts-ignore
+  const {colors}: {colors:CustomColors}= useTheme();
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [stylesInputs, setStylesInputs] = useState({
+    emailInputColor: colors.neutral000,
+    emailInputBorderColor: colors.neutral300,
+    passwordInputColor: colors.neutral000,
+    passwordInputBorderColor: colors.neutral1500,
+    iconColor: colors.neutral1500,
+  } as any);
   const {height}: {height: number} = useWindowDimensions();
   const animatedValue = useTranslateYAnimation(height);
   useEffect(() => {
     //Animate Login container
     animatedValue.animate();
   }, []);
+
+  const handleEmailInput = (e:string) => {
+    const text = e;
+    setEmail(text);
+    if (text.length > 0) {
+      setStylesInputs({
+        ...stylesInputs,
+        emailInputColor: colors.neutral300,
+        iconColor: colors.primary000,
+      });
+    } else {
+      setStylesInputs({
+        ...stylesInputs,
+        emailInputColor: colors.neutral000,
+        iconColor: colors.neutral1500,
+      });
+    }
+  }
 
   return (
     <Animated.View
@@ -26,7 +53,6 @@ const LoginScreen = (): React.JSX.Element => {
         {
           top: animatedValue.translateY,
           height: height * 0.55,
-          // @ts-ignore: Property exists
           backgroundColor: colors.neutral000,
         },
       ]}>
@@ -34,26 +60,39 @@ const LoginScreen = (): React.JSX.Element => {
         style={[
           styles.header,
           {
-            // @ts-ignore: Property exists
             color: colors.black,
           },
         ]}>
         Iniciar Sesión
       </Text>
       <Input
-        placeholder="Enter your email"
+        placeholder="Ingresa tu correo electrónico"
         Icon={EmailIcon}
         iconColor={
-          // @ts-ignore: Property exists
-          colors.neutral1500
+          stylesInputs.iconColor
         }
-        innerRef={emailRef}
+        inputStyle={
+          {
+            borderWidth: 1,
+            backgroundColor: stylesInputs.emailInputColor,
+            borderColor: stylesInputs.emailInputBorderColor,
+          }
+        }
+        value={email}
         keyboard="email-address"
         props={{}}
+        onChangeText={handleEmailInput}
       />
       <Input
         placeholder="Enter your password"
-        innerRef={passwordRef}
+        inputStyle={
+          {
+            borderWidth: 1,
+            backgroundColor: stylesInputs.passwordInputColor,
+            borderColor: stylesInputs.passwordInputBorderColor,
+          }
+        }
+        value={password}
         props={{autoCorrect: false}}
       />
     </Animated.View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet, TextInputProps} from 'react-native';
+import {View, Text, TextInput, StyleSheet, TextInputProps, StyleProp} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 
 interface InputProps extends TextInputProps {
@@ -7,7 +7,7 @@ interface InputProps extends TextInputProps {
   placeholder?: string;
   iconSrc?: string;
   iconColor?: string;
-  innerRef: any;
+  value?: string;
   props: TextInputProps;
   Icon?: any;
   keyboard?:
@@ -25,6 +25,7 @@ interface InputProps extends TextInputProps {
     | 'twitter'
     | 'web-search'
     | undefined;
+  inputStyle?: StyleProp<any>;
 }
 
 const Input = ({
@@ -32,11 +33,12 @@ const Input = ({
   placeholder,
   iconColor,
   Icon,
+  inputStyle,
   keyboard = 'default',
-  innerRef,
+  value,
   ...props
 }: InputProps): React.JSX.Element => {
-  const {colors} = useTheme();
+  const {colors}:{colors:any} = useTheme();
 
   return (
     <View style={[styles.container]}>
@@ -45,35 +47,48 @@ const Input = ({
           style={[
             styles.label,
             {
-              // @ts-ignore
               color: colors.black,
             },
           ]}>
           {label}
         </Text>
       )}
-      {Icon && (
-        <View testID="icon">
-          <Icon color={iconColor} />
-        </View>
-      )}
-      <TextInput
-        style={[
-          styles.input,
-          {
-            // @ts-ignore
-            color: colors.black,
-          },
-        ]}
-        placeholderTextColor={
-          // @ts-ignore
-          colors.neutral1200
+      <View style={
+        {
+          ...styles.inputContainer,
+          backgroundColor: colors.card,
         }
-        placeholder={placeholder}
-        ref={innerRef}
-        keyboardType={keyboard}
-        {...props}
-      />
+      }>
+        {Icon && (
+          <View 
+            style={
+              {
+                position: 'absolute',
+                left: 10,
+                zIndex: 1,
+              }
+            }
+            testID="icon"
+          >
+            <Icon color={iconColor} />
+          </View>
+        )}
+        <TextInput
+          style={
+            {
+              ...styles.input,
+              ...inputStyle,
+            }
+          }
+          placeholderTextColor={
+            colors.neutral1200
+          }
+          placeholder={placeholder}
+          value={value}
+          keyboardType={keyboard}
+          {...props}
+        />
+      </View>
     </View>
   );
 };
@@ -88,8 +103,14 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#f5f5f5',
+    borderRadius: 10,
+    width: '100%',
+    paddingLeft: 40,
+
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
