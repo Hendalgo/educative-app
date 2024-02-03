@@ -12,15 +12,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
-    
-    width: "100%",
+
+    width: '100%',
   },
   text: {
     fontSize: 20,
   },
   header: {
     fontSize: 22,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
     fontFamily: 'Poppins-Bold',
   },

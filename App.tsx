@@ -1,5 +1,4 @@
 import React, {StrictMode, useEffect, useState} from 'react';
-import {SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import MainStack from './src/navigations/MainStack';
@@ -16,6 +15,9 @@ function App(): React.JSX.Element {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
+      if (true) {
+        setIsAuthenticated(true);
+      }
     }, 2000);
   }, []);
 
@@ -28,7 +30,7 @@ function App(): React.JSX.Element {
         ) : isAuthenticated ? (
           <MainStack />
         ) : (
-          <AuthScreen/>
+          <AuthScreen />
         )}
       </NavigationContainer>
     </StrictMode>

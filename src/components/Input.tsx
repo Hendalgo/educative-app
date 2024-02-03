@@ -1,19 +1,6 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  TextInputProps,
-  StyleProp,
-  ViewStyle,
-  TextStyle,
-  Image,
-} from "react-native";
-import { useTheme } from "@react-navigation/native";
-
-
-const xml = 1
+import React from 'react';
+import {View, Text, TextInput, StyleSheet, TextInputProps} from 'react-native';
+import {useTheme} from '@react-navigation/native';
 
 interface InputProps extends TextInputProps {
   label?: string;
@@ -23,34 +10,61 @@ interface InputProps extends TextInputProps {
   innerRef: any;
   props: TextInputProps;
   Icon?: any;
-  keyboard?: "default" | "numeric" | "email-address" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined;
+  keyboard?:
+    | 'default'
+    | 'numeric'
+    | 'email-address'
+    | 'phone-pad'
+    | 'number-pad'
+    | 'decimal-pad'
+    | 'visible-password'
+    | 'ascii-capable'
+    | 'numbers-and-punctuation'
+    | 'url'
+    | 'name-phone-pad'
+    | 'twitter'
+    | 'web-search'
+    | undefined;
 }
 
-const Input = ({ label, placeholder, iconColor,  Icon, keyboard = 'default',  innerRef, ...props}: InputProps): React.JSX.Element => {
-  const { colors } = useTheme();
+const Input = ({
+  label,
+  placeholder,
+  iconColor,
+  Icon,
+  keyboard = 'default',
+  innerRef,
+  ...props
+}: InputProps): React.JSX.Element => {
+  const {colors} = useTheme();
 
   return (
     <View style={[styles.container]}>
       {label && (
-        <Text style={[styles.label, { 
-          // @ts-ignore
-          color: colors.black 
-          }]}>
+        <Text
+          style={[
+            styles.label,
+            {
+              // @ts-ignore
+              color: colors.black,
+            },
+          ]}>
           {label}
         </Text>
       )}
-      {
-        Icon && 
-        <Icon
-          color={iconColor}
-          testID="icon"
-        />
-        
-      }
+      {Icon && (
+        <View testID="icon">
+          <Icon color={iconColor} />
+        </View>
+      )}
       <TextInput
-        style={[styles.input, { 
-          // @ts-ignore
-          color: colors.black }]}
+        style={[
+          styles.input,
+          {
+            // @ts-ignore
+            color: colors.black,
+          },
+        ]}
         placeholderTextColor={
           // @ts-ignore
           colors.neutral1200
@@ -70,12 +84,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   input: {
     padding: 10,
     borderRadius: 5,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: '#f5f5f5',
   },
 });
 

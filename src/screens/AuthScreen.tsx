@@ -1,13 +1,10 @@
-import React from "react";
-import { View, Image } from "react-native";
-import styles from "../styles";
-import { useTheme } from "@react-navigation/native";
-import { useWindowDimensions } from "react-native";
-import LoginScreen from "./LoginScreen";
+import React from 'react';
+import {View, Image} from 'react-native';
+import styles from '../styles';
+import {useTheme} from '@react-navigation/native';
+import LoginScreen from './LoginScreen';
 const AuthScreen = (): React.JSX.Element => {
-  const { colors } = useTheme();
-  const { height }: { height: number } = useWindowDimensions();
-  
+  const {colors} = useTheme();
   return (
     <View
       style={[
@@ -16,11 +13,10 @@ const AuthScreen = (): React.JSX.Element => {
           // @ts-ignore: Property exists
           backgroundColor: colors.primary000,
         },
-      ]}
-    >
-      <Image 
-        source={require("@assets/images/logo.png")} 
-        style={{flex: 1, resizeMode: "contain", alignSelf: "center"}}
+      ]}>
+      <Image
+        source={require('@assets/images/logo.png')}
+        style={{flex: 1, resizeMode: 'contain', alignSelf: 'center'}}
       />
       <LoginScreen />
     </View>
