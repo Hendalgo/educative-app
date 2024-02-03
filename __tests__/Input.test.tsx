@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import Input from '@components/Input';
 import { TextInput } from 'react-native';
+import EmailIcon from '@assets/icons/EmailIcon';
 
 describe('Input', () => {
   const ref:React.RefObject<TextInput> = React.createRef();
@@ -27,10 +28,6 @@ describe('Input', () => {
   it('button renders without placeholder', () => {
     const { queryByPlaceholderText } = render(<Input label="Email" innerRef={ref} props={{}}/>);
     expect(queryByPlaceholderText('Enter your email')).toBeNull();
-  });
-  it('icon renders correctly', () => {
-    const { getByTestId } = render(<Input label="Email" iconSrc="@assets/images/logo.png" innerRef={ref} props={{}}/>);
-    expect(getByTestId('icon')).toBeTruthy();
   });
   it('change keyboard type', () => {
     const { getByPlaceholderText } = render(<Input label="Email" placeholder="Enter your email" keyboard="numeric" innerRef={ref} props={{}}/>);

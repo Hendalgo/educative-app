@@ -12,16 +12,21 @@ import {
 } from "react-native";
 import { useTheme } from "@react-navigation/native";
 
+
+const xml = 1
+
 interface InputProps extends TextInputProps {
   label?: string;
   placeholder?: string;
   iconSrc?: string;
+  iconColor?: string;
   innerRef: any;
   props: TextInputProps;
+  Icon?: any;
   keyboard?: "default" | "numeric" | "email-address" | "phone-pad" | "number-pad" | "decimal-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | undefined;
 }
 
-const Input = ({ label, placeholder, iconSrc, keyboard = 'default', innerRef, ...props}: InputProps): React.JSX.Element => {
+const Input = ({ label, placeholder, iconColor,  Icon, keyboard = 'default',  innerRef, ...props}: InputProps): React.JSX.Element => {
   const { colors } = useTheme();
 
   return (
@@ -35,11 +40,12 @@ const Input = ({ label, placeholder, iconSrc, keyboard = 'default', innerRef, ..
         </Text>
       )}
       {
-        iconSrc && 
-        <Image 
+        Icon && 
+        <Icon
+          color={iconColor}
           testID="icon"
-          src={iconSrc} 
         />
+        
       }
       <TextInput
         style={[styles.input, { 
