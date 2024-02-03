@@ -14,6 +14,7 @@ module.exports = {
           "@config": "./src/config",
           "@navigations": "./src/navigations",
           "@styles": "./src/styles",
+          "@hooks": "./src/hooks",
         }
       }
     ]
