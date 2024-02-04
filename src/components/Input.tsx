@@ -64,7 +64,7 @@ const Input = ({
             style={
               {
                 position: 'absolute',
-                left: 10,
+                left: 12,
                 zIndex: 1,
               }
             }
@@ -78,6 +78,7 @@ const Input = ({
             {
               ...styles.input,
               ...inputStyle,
+              ...styles.inputFont,
             }
           }
           placeholderTextColor={
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 8,
     width: '100%',
     paddingLeft: 40,
 
@@ -111,6 +112,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  inputFont: {
+    fontFamily: 'Poppins-Regular',
   },
 });
 

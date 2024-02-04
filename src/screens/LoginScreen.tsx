@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
 import {useWindowDimensions} from 'react-native';
@@ -10,6 +10,7 @@ import EmailIcon from '@assets/icons/EmailIcon';
 import { CustomColors} from 'src/styles/themes';
 import PasswordIcon from '@assets/icons/PasswordIcon';
 import { useKeyboardStatus } from '@hooks/useKeyboardStatus';
+import Button from '@components/Button';
 
 const LoginScreen = (): React.JSX.Element => {
   //@ts-ignore
@@ -19,6 +20,9 @@ const LoginScreen = (): React.JSX.Element => {
   // States for inputs
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  //const [error, setError] = useState<string>('' as any); // [error, setError]
+  //const [loading, setLoading] = useState<boolean>(false); // [loading, setLoading
+  const [buttonDisabled, setButtonDisabled] = useState<any>('disable'); // [buttonDisabled, setButtonDisabled
 
   // Styles for inputs and icons
   // To change the color of the input and the icon when the user types
@@ -54,7 +58,13 @@ const LoginScreen = (): React.JSX.Element => {
     //Animate Login container
     animatedValue.animate();
   }, []);
-
+  useEffect(() => {
+    if (email.length > 0 && password.length > 0) {
+      setButtonDisabled('primary');
+    } else {
+      setButtonDisabled('disable');
+    }
+  }, [email, password]);
   //Handle the input for the email
   //Change the color of the input and the icon
   const handleEmailInput = (e:string) => {
@@ -145,6 +155,19 @@ const LoginScreen = (): React.JSX.Element => {
         props={{autoCorrect: false}}
         onChangeText={handlePasswordInput}
       />
+      <View
+        style={
+          {
+            marginTop: 10,
+          }
+        }
+      >  
+        <Button
+          title="Continuar"
+          type={buttonDisabled}
+          onPress={() => console.log('Iniciar Sesión')}
+        />
+      </View>
     </Animated.ScrollView>
   );
 };
