@@ -9,12 +9,19 @@ import Input from '@components/Input';
 import EmailIcon from '@assets/icons/EmailIcon';
 import { CustomColors} from 'src/styles/themes';
 import PasswordIcon from '@assets/icons/PasswordIcon';
+import { useKeyboardStatus } from '@hooks/useKeyboardStatus';
 
 const LoginScreen = (): React.JSX.Element => {
   //@ts-ignore
+  //Custom colors from the theme
   const {colors}: {colors:CustomColors}= useTheme();
+
+  // States for inputs
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  // Styles for inputs and icons
+  // To change the color of the input and the icon when the user types
   const [stylesInputs, setStylesInputs] = useState({
     emailInputColor: colors.neutral000,
     emailInputBorderColor: colors.neutral300,
@@ -23,13 +30,33 @@ const LoginScreen = (): React.JSX.Element => {
     iconColor: colors.neutral1500,
     iconPasswordColor: colors.neutral1500,
   } as any);
+
+  // Get the height of the screen
+  // This is used to animate the login container
   const {height}: {height: number} = useWindowDimensions();
+  
+  // Stable the height of the login container
+  // This is used to change the height of the login container when the keyboard is open
+  // because is ocupying the half of the screen and the image is not visible
+  const [maxHeight, setMaxHeight] = useState<number>(0.6);
   const animatedValue = useTranslateYAnimation(height);
+  
+  const keyboard = useKeyboardStatus();
+
+  useEffect(() => {
+    if (keyboard) {
+      setMaxHeight(0.4);
+    } else {
+      setMaxHeight(0.6);
+    }
+  }, [keyboard]);
   useEffect(() => {
     //Animate Login container
     animatedValue.animate();
   }, []);
 
+  //Handle the input for the email
+  //Change the color of the input and the icon
   const handleEmailInput = (e:string) => {
     const text = e;
     setEmail(text);
@@ -47,7 +74,7 @@ const LoginScreen = (): React.JSX.Element => {
       });
     }
   }
-
+  //Handle the input for the password
   const handlePasswordInput = (e:string) => {
     const text = e;
     setPassword(text);
@@ -66,14 +93,14 @@ const LoginScreen = (): React.JSX.Element => {
     }
   }
   return (
-    <Animated.View
+    <Animated.ScrollView
       style={[
-        styles.authContainer,
         {
           top: animatedValue.translateY,
-          height: height * 0.65,
+          ...styles.authContainer,
           backgroundColor: colors.neutral000,
-        },
+          maxHeight: height * maxHeight,
+        }
       ]}>
       <Text
         style={[
@@ -118,7 +145,7 @@ const LoginScreen = (): React.JSX.Element => {
         props={{autoCorrect: false}}
         onChangeText={handlePasswordInput}
       />
-    </Animated.View>
+    </Animated.ScrollView>
   );
 };
 

@@ -9,20 +9,27 @@ const styles = StyleSheet.create({
   authContainer: {
     // @ts-ignore
     paddingVertical: 36,
-    paddingHorizontal: 20,
-    borderTopStartRadius: 20,
-    borderTopEndRadius: 20,
-
+    paddingHorizontal: 28,
+    borderRadius: 20,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
     width: '100%',
   },
   text: {
     fontSize: 20,
   },
   header: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    fontFamily: 'Poppins-Bold',
+    fontSize: 26,
+    fontFamily: 'Poppins-SemiBold',
+  },
+  authLogo: {
+    flex: 1, 
+    resizeMode: 'contain', 
+    alignSelf: 'center',
+    margin: 20,
+  },
+  inputFont: {
+    fontFamily: 'Poppins-Regular',
   },
 });
 
