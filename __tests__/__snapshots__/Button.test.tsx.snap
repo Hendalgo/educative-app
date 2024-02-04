@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Button Componet Should render the button component 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "backgroundColor": undefined,
+        "borderColor": undefined,
+        "borderRadius": 8,
+        "padding": 14,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      {
+        "fontFamily": "Poppins-Regular",
+        "fontSize": 16,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    Test
+  </Text>
+</View>
+`;
+
+exports[`Test Button Componet render the button component with the type disable 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "backgroundColor": undefined,
+        "borderColor": undefined,
+        "borderRadius": 8,
+        "padding": 14,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      {
+        "color": undefined,
+        "fontFamily": "Poppins-Regular",
+        "fontSize": 16,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    Test
+  </Text>
+</View>
+`;
