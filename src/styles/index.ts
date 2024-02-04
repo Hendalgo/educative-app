@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
   },
-  header: {
+  title: {
     fontSize: 26,
     fontFamily: 'Poppins-SemiBold',
   },
@@ -30,6 +30,22 @@ const styles = StyleSheet.create({
   },
   inputFont: {
     fontFamily: 'Poppins-Regular',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+  subtitle: {
+    fontSize: 14,
+    fontFamily: 'Poppins-Regular',
+  },
+  headerContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    position: 'absolute',
+    height: 70,
   },
 });
 

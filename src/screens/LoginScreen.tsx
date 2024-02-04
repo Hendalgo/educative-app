@@ -13,7 +13,7 @@ import { useKeyboardStatus } from '@hooks/useKeyboardStatus';
 import Button from '@components/Button';
 import AuthScreen from './AuthScreen';
 
-const LoginScreen = (): React.JSX.Element => {
+const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
   //@ts-ignore
   //Custom colors from the theme
   const {colors}: {colors:CustomColors}= useTheme();
@@ -58,7 +58,7 @@ const LoginScreen = (): React.JSX.Element => {
   useEffect(() => {
     //Animate Login container
     animatedValue.animate();
-  }, []);
+  }, [height]);
   useEffect(() => {
     if (email.length > 0 && password.length > 0) {
       setButtonDisabled('primary');
@@ -116,7 +116,7 @@ const LoginScreen = (): React.JSX.Element => {
         ]}>
         <Text
           style={[
-            styles.header,
+            styles.title,
             {
               color: colors.black,
             },
@@ -169,7 +169,9 @@ const LoginScreen = (): React.JSX.Element => {
             }
           }
         >
-          <Pressable>
+          <Pressable
+            onPress={() => navigation.navigate('ForgotPasswordGetEmail')}
+          >
             <Text
               style={
                 {
