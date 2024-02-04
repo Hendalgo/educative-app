@@ -16,7 +16,10 @@
       "@store/*": ["./src/store/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@api/*": ["./src/api/*"],
-      "@types/*": ["./src/types/*"]
+      "@types/*": ["./src/types/*"],
+      "@config/*": ["./src/config/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@styles/*": ["./src/styles/*"],
     }
   },
 }
