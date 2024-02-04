@@ -6,6 +6,7 @@ import LoadingScreen from './src/screens/LoadingScreen';
 import {useColorScheme} from 'react-native';
 import {darkTheme, lightTheme} from './src/styles/themes';
 import AuthScreen from '@screens/AuthScreen';
+import AuthStack from '@navigations/AuthStack';
 
 function App(): React.JSX.Element {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -27,7 +28,7 @@ function App(): React.JSX.Element {
         ) : isAuthenticated ? (
           <MainStack />
         ) : (
-          <AuthScreen />
+          <AuthStack />
         )}
       </NavigationContainer>
     </StrictMode>

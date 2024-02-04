@@ -4,7 +4,8 @@ import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
 import LoginScreen from './LoginScreen';
 import { CustomColors } from 'src/styles/themes';
-const AuthScreen = (): React.JSX.Element => {
+
+const AuthScreen = ({children}:{children:React.JSX.Element }): React.JSX.Element => {
   //@ts-ignore
   //Custom colors from the theme
   const {colors}:{colors: CustomColors} = useTheme();
@@ -32,7 +33,7 @@ const AuthScreen = (): React.JSX.Element => {
           }
         }
       >
-        <LoginScreen />
+        {children}
       </View>
     </View>
   );

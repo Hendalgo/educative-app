@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Image, Pressable} from 'react-native';
 import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
 import {useWindowDimensions} from 'react-native';
@@ -11,6 +11,7 @@ import { CustomColors} from 'src/styles/themes';
 import PasswordIcon from '@assets/icons/PasswordIcon';
 import { useKeyboardStatus } from '@hooks/useKeyboardStatus';
 import Button from '@components/Button';
+import AuthScreen from './AuthScreen';
 
 const LoginScreen = (): React.JSX.Element => {
   //@ts-ignore
@@ -103,72 +104,99 @@ const LoginScreen = (): React.JSX.Element => {
     }
   }
   return (
-    <Animated.ScrollView
-      style={[
-        {
-          top: animatedValue.translateY,
-          ...styles.authContainer,
-          backgroundColor: colors.neutral000,
-          maxHeight: height * maxHeight,
-        }
-      ]}>
-      <Text
+    <AuthScreen>
+      <Animated.ScrollView
         style={[
-          styles.header,
           {
-            color: colors.black,
-          },
+            top: animatedValue.translateY,
+            ...styles.authContainer,
+            backgroundColor: colors.neutral000,
+            maxHeight: height * maxHeight,
+          }
         ]}>
-        Iniciar Sesión
-      </Text>
-      <Input
-        placeholder="Ingresa tu correo electrónico"
-        Icon={EmailIcon}
-        iconColor={
-          stylesInputs.iconColor
-        }
-        inputStyle={
-          {
-            borderWidth: 1,
-            backgroundColor: stylesInputs.emailInputColor,
-            borderColor: stylesInputs.emailInputBorderColor,
+        <Text
+          style={[
+            styles.header,
+            {
+              color: colors.black,
+            },
+          ]}>
+          Iniciar Sesión
+        </Text>
+        {/*Email Input*/}
+        <Input
+          placeholder="Ingresa tu correo electrónico"
+          Icon={EmailIcon}
+          iconColor={
+            stylesInputs.iconColor
           }
-        }
-        value={email}
-        keyboard="email-address"
-        props={{}}
-        onChangeText={handleEmailInput}
-      />
-      <Input
-        placeholder="Enter your password"
-        inputStyle={
-          {
-            borderWidth: 1,
-            backgroundColor: stylesInputs.passwordInputColor,
-            borderColor: stylesInputs.passwordInputBorderColor,
+          inputStyle={
+            {
+              borderWidth: 1,
+              backgroundColor: stylesInputs.emailInputColor,
+              borderColor: stylesInputs.emailInputBorderColor,
+            }
           }
-        }
-        Icon={PasswordIcon}
-        iconColor={stylesInputs.iconPasswordColor}
-        secureTextEntry={true}
-        value={password}
-        props={{autoCorrect: false}}
-        onChangeText={handlePasswordInput}
-      />
-      <View
-        style={
-          {
-            marginTop: 10,
-          }
-        }
-      >  
-        <Button
-          title="Continuar"
-          type={buttonDisabled}
-          onPress={() => console.log('Iniciar Sesión')}
+          value={email}
+          keyboard="email-address"
+          props={{}}
+          onChangeText={handleEmailInput}
         />
-      </View>
-    </Animated.ScrollView>
+        {/*Password Input*/}
+        <Input
+          placeholder="Enter your password"
+          inputStyle={
+            {
+              borderWidth: 1,
+              backgroundColor: stylesInputs.passwordInputColor,
+              borderColor: stylesInputs.passwordInputBorderColor,
+            }
+          }
+          Icon={PasswordIcon}
+          iconColor={stylesInputs.iconPasswordColor}
+          secureTextEntry={true}
+          value={password}
+          props={{autoCorrect: false}}
+          onChangeText={handlePasswordInput}
+        />
+        {/*Forgot Password*/}
+        <View
+          style={
+            {
+              alignItems: 'flex-start',
+              marginTop: 8,
+              marginBottom: 30,
+            }
+          }
+        >
+          <Pressable>
+            <Text
+              style={
+                {
+                  color: colors.neutral1200,
+                }
+              }
+            >
+              ¿Olvidaste tu contraseña?
+            </Text>
+          </Pressable>
+        </View>
+        {/*Login Button*/}
+        <View
+          style={
+            {
+              marginTop: 10,
+            }
+          }
+        >  
+          <Button
+            title="Continuar"
+            type={buttonDisabled}
+            onPress={() => console.log('Iniciar Sesión')}
+          />
+        </View>
+      </Animated.ScrollView>
+    </AuthScreen>
   );
 };
 
