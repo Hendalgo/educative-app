@@ -61,8 +61,11 @@ const styles = StyleSheet.create({
   individualInputsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignContent: 'center',
-    marginBottom: 20,
+    alignContent: 'center'
+  },
+  errorText: {
+    color: 'red',
+    textAlign: 'center',
   },
 });
 

@@ -4,6 +4,7 @@ import LoginScreen from '@screens/LoginScreen';
 import ForgotPasswordGetEmailScreen from '@screens/ForgotPasswordGetEmailScreen';
 import StackHeader from '@components/StackHeader';
 import VerifyCodeScreen from '@screens/VerifyCodeScreen';
+import ChangePasswordScreen from '@screens/ChangePasswordScreen';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,10 @@ const AuthStack = (): React.JSX.Element => {
         <Stack.Screen
           name="ForgotPasswordGetCode"
           component={VerifyCodeScreen}
+        />
+        <Stack.Screen
+          name="ChangePasswordScreen"
+          component={ChangePasswordScreen}
         />
       </Stack.Group>
     </Stack.Navigator>
