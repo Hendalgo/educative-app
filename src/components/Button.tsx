@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {Pressable, StyleProp} from 'react-native';
+import React from 'react';
+import {Image, ImageSourcePropType, Pressable, StyleProp} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {CustomColors} from 'src/styles/themes';
-import styles from '../styles';
 import {Text} from 'react-native';
+import  globalStyles from '@styles/index';
 
 interface ButtonProps {
-  title: string;
+  title?: string;
   onPress: () => void;
   color?: string;
   type?:
@@ -24,12 +24,14 @@ interface ButtonProps {
     | 'dashed'
     | 'default'
     | 'text';
+  image?: ImageSourcePropType;
 }
 
 const Button = ({
   title,
   onPress,
   type = 'default',
+  image
 }: ButtonProps): React.JSX.Element => {
   //@ts-ignore
   const {colors}: {colors: CustomColors} = useTheme();
@@ -77,8 +79,9 @@ const Button = ({
       styleButton.borderColor = colors.primary1200;
     },
     outline: (): void => {
-      styleButton.backgroundColor = colors.primary1200;
-      styleButton.borderColor = colors.primary1200;
+      styleButton.backgroundColor = "transparent";
+      styleButton.borderColor = colors.neutral1200;
+      styleButton.borderWidth = 1;
     },
     ghost: (): void => {
       styleButton.backgroundColor = colors.primary1200;
@@ -99,21 +102,33 @@ const Button = ({
       style={[
         {
           ...styleButton,
-          padding: 12,
-          borderRadius: 8,
+          ...globalStyles.button,
         },
       ]}
       onPress={onPress}>
-      <Text
-        style={{
-          ...styleText,
-          fontSize: 16,
-          fontFamily: 'Poppins-Regular',
-          textAlign: 'center',
-          textAlignVertical: 'center',
-        }}>
-        {title}
-      </Text>
+      {
+        image &&
+        <Image
+          source={image}
+          style={{
+            resizeMode: 'contain',
+            alignSelf: 'center',
+          }}
+        />
+      }
+      {
+        title &&
+        <Text
+          style={{
+            ...styleText,
+            fontSize: 16,
+            fontFamily: 'Poppins-Regular',
+            textAlign: 'center',
+            textAlignVertical: 'center',
+          }}>
+          {title}
+        </Text>
+      }
     </Pressable>
   );
 };

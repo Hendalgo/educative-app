@@ -111,7 +111,6 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
             top: animatedValue.translateY,
             ...styles.authContainer,
             backgroundColor: colors.neutral000,
-            maxHeight: height * maxHeight,
           },
         ]}>
         <Text
@@ -158,7 +157,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
           style={{
             alignItems: 'flex-start',
             marginTop: 8,
-            marginBottom: 30,
+            marginBottom: 20,
           }}>
           <Pressable
             onPress={() => navigation.navigate('ForgotPasswordGetEmail')}>
@@ -181,6 +180,44 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
             onPress={() => console.log('Iniciar Sesión')}
           />
         </View>
+        {/*Divider*/}
+        <View
+          style={{
+            ...styles.container,
+            justifyContent: 'center',
+            flexDirection: 'row',
+            gap: 10,
+            alignContent: 'center',
+          }}
+        >
+          <View
+            style={{
+              ...styles.divider,
+              backgroundColor: colors.neutral300,
+            }}
+          ></View>
+          <Text
+            style={{
+              color: colors.neutral900,
+              fontFamily: 'Poppins-Regular',
+            }}
+          >o
+          </Text>
+          <View
+            style={{
+              ...styles.divider,
+              backgroundColor: colors.neutral300,
+              marginBottom: 20,
+            }}
+          >
+          </View>
+        </View>
+        {/*Login with Google*/}
+        <Button
+          type="outline"
+          image={require('@assets/images/google-logo.png')}
+          onPress={() => console.log('Iniciar Sesión con Google')}
+        />
       </Animated.ScrollView>
     </AuthScreen>
   );

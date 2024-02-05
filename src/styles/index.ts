@@ -67,6 +67,20 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
   },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 20,
+    height: 1,
+    width: '100%',
+  },
+  button:{
+    padding: 12,
+    borderRadius: 8,
+    height: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
 
 export default styles;
