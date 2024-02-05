@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Text, View, Pressable} from 'react-native';
 import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
@@ -12,16 +12,22 @@ import PasswordIcon from '@assets/icons/PasswordIcon';
 import {useKeyboardStatus} from '@hooks/useKeyboardStatus';
 import Button from '@components/Button';
 import AuthScreen from './AuthScreen';
+import { AuthContext } from '@contexts/AuthContext';
+import { IAuthContext } from '@interfaces/Auth';
+import { login } from '@services/auth';
+import { logedUser } from '@services/user';
+import User from '@interfaces/User';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
   //@ts-ignore
   //Custom colors from the theme
   const {colors}: {colors: CustomColors} = useTheme();
-
+  const {authState, authDispatch}:IAuthContext = useContext(AuthContext);
   // States for inputs
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  //const [error, setError] = useState<string>('' as any); // [error, setError]
+  const [error, setError] = useState<string>('' as any); // [error, setError]
   //const [loading, setLoading] = useState<boolean>(false); // [loading, setLoading
   const [buttonDisabled, setButtonDisabled] = useState<any>('disable'); // [buttonDisabled, setButtonDisabled
 
@@ -103,6 +109,21 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
       });
     }
   };
+  const handleLogin = () => {
+    setButtonDisabled('disable')
+    setError('');
+    if (email.length > 0 && password.length > 0 && buttonDisabled === 'primary') {
+      login(email, password).then((user) => {
+        if (user) {
+          console.log('Loged');
+          authDispatch({type: 'login', payload: user});
+        }
+      }).catch((error: any) => {
+        setError(error.message);
+        setButtonDisabled('primary')
+      });
+    }
+  }
   return (
     <AuthScreen>
       <Animated.ScrollView
@@ -169,6 +190,24 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
             </Text>
           </Pressable>
         </View>
+        {/*Error Message*/}
+        {
+          error
+          &&
+          <View
+            style={{
+              alignItems: 'center',
+              marginBottom: 20,
+            }}>
+            <Text
+              style={{
+                color: 'red',
+                fontFamily: 'Poppins-Regular',
+              }}>
+              {error}
+            </Text>
+          </View>
+        }
         {/*Login Button*/}
         <View
           style={{
@@ -177,7 +216,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
           <Button
             title="Continuar"
             type={buttonDisabled}
-            onPress={() => console.log('Iniciar Sesión')}
+            onPress={() => handleLogin()}
           />
         </View>
         {/*Divider*/}
