@@ -20,6 +20,10 @@
       "@config/*": ["./src/config/*"],
       "@constants/*": ["./src/constants/*"],
       "@styles/*": ["./src/styles/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@reducers/*": ["./src/reducers/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@services/*": ["./src/services/*"],
     }
   },
 }
