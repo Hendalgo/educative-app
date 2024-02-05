@@ -1,6 +1,6 @@
 import {DefaultTheme, Theme} from '@react-navigation/native';
 
-export interface CustomColors{
+export interface CustomColors {
   primary1600: string;
   primary1200: string;
   primary800: string;
@@ -29,7 +29,7 @@ export interface CustomTheme extends Theme {
   colors: CustomColors;
 }
 
-export const lightTheme:CustomTheme = {
+export const lightTheme: CustomTheme = {
   dark: false,
   colors: {
     ...DefaultTheme.colors,
@@ -53,7 +53,7 @@ export const lightTheme:CustomTheme = {
   },
 };
 
-export const darkTheme:CustomTheme = {
+export const darkTheme: CustomTheme = {
   dark: true,
   colors: {
     ...DefaultTheme.colors,

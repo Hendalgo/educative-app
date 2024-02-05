@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import {View, Image, useWindowDimensions} from 'react-native';
+import React from 'react';
+import {View, Image} from 'react-native';
 import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
-import LoginScreen from './LoginScreen';
-import { CustomColors } from 'src/styles/themes';
+import {CustomColors} from 'src/styles/themes';
 
-const AuthScreen = ({children}:{children:React.JSX.Element }): React.JSX.Element => {
+const AuthScreen = ({
+  children,
+}: {
+  children: React.JSX.Element;
+}): React.JSX.Element => {
   //@ts-ignore
   //Custom colors from the theme
-  const {colors}:{colors: CustomColors} = useTheme();
+  const {colors}: {colors: CustomColors} = useTheme();
   return (
     <View
       style={[
@@ -17,22 +20,19 @@ const AuthScreen = ({children}:{children:React.JSX.Element }): React.JSX.Element
           // @ts-ignore: Property exists
           backgroundColor: colors.primary000,
         },
-      ]} >
+      ]}>
       {/*Image for the logo*/}
       <Image
         source={require('@assets/images/logo.png')}
         style={{
-          ...styles.authLogo
+          ...styles.authLogo,
         }}
       />
       {/*View for Login, Register and Forgot Password*/}
       <View
-        style={
-          {
-            flex: 0,
-          }
-        }
-      >
+        style={{
+          flex: 0,
+        }}>
         {children}
       </View>
     </View>

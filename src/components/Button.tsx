@@ -1,93 +1,109 @@
-import React, {useState} from "react";
-import { Pressable, StyleProp } from "react-native";
-import { useTheme } from "@react-navigation/native";
-import { CustomColors } from "src/styles/themes";
-import styles from "../styles";
-import { Text } from "react-native";
-
+import React, {useState} from 'react';
+import {Pressable, StyleProp} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import {CustomColors} from 'src/styles/themes';
+import styles from '../styles';
+import {Text} from 'react-native';
 
 interface ButtonProps {
   title: string;
   onPress: () => void;
   color?: string;
-  type?: 'primary' | 'secondary' | 'disable' | 'warning' | 'success' | 'info' | 'danger' | 'link' | 'text' | 'outline' | 'ghost' | 'dashed' | 'default' | 'text';
+  type?:
+    | 'primary'
+    | 'secondary'
+    | 'disable'
+    | 'warning'
+    | 'success'
+    | 'info'
+    | 'danger'
+    | 'link'
+    | 'text'
+    | 'outline'
+    | 'ghost'
+    | 'dashed'
+    | 'default'
+    | 'text';
 }
 
-const Button = ({ title, onPress, type = 'default' }: ButtonProps): React.JSX.Element => {
+const Button = ({
+  title,
+  onPress,
+  type = 'default',
+}: ButtonProps): React.JSX.Element => {
   //@ts-ignore
-  const { colors }: { colors: CustomColors } = useTheme();
+  const {colors}: {colors: CustomColors} = useTheme();
   //const [stylesInputs, setStylesInputs] = useState<StyleProp<any>>({});
-  const styleButton:StyleProp<any> = {}
-  const styleText:StyleProp<any> = {}
+  const styleButton: StyleProp<any> = {};
+  const styleText: StyleProp<any> = {};
 
   const styles = {
-    disable: (): void=>{
+    disable: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
       styleText.color = colors.neutral000;
     },
-    primary: (): void=>{
+    primary: (): void => {
       styleButton.backgroundColor = colors.primary000;
       styleButton.borderColor = colors.primary000;
       styleText.color = colors.neutral000;
     },
-    secondary: (): void=>{
+    secondary: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    warning: (): void=>{
+    warning: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    success: (): void=>{
+    success: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    info: (): void=>{
+    info: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    danger: (): void=>{
+    danger: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    link: (): void=>{
+    link: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    text: (): void=>{
+    text: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    outline: (): void=>{
+    outline: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    ghost: (): void=>{
+    ghost: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    dashed: (): void=>{
+    dashed: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
     },
-    default: (): void=>{
+    default: (): void => {
       styleButton.backgroundColor = colors.primary1200;
       styleButton.borderColor = colors.primary1200;
-    }
-  }
+    },
+  };
   styles[type] && styles[type]();
   return (
     <Pressable
       style={[
         {
           ...styleButton,
-          padding: 14,
+          padding: 12,
           borderRadius: 8,
         },
       ]}
-      onPress={onPress}
-    >
+      onPress={onPress}>
       <Text
         style={{
           ...styleText,
@@ -95,8 +111,7 @@ const Button = ({ title, onPress, type = 'default' }: ButtonProps): React.JSX.El
           fontFamily: 'Poppins-Regular',
           textAlign: 'center',
           textAlignVertical: 'center',
-        }}
-      >
+        }}>
         {title}
       </Text>
     </Pressable>

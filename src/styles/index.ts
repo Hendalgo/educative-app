@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-SemiBold',
   },
   authLogo: {
-    flex: 1, 
-    resizeMode: 'contain', 
+    flex: 1,
+    resizeMode: 'contain',
     alignSelf: 'center',
     margin: 20,
   },
@@ -46,6 +46,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     position: 'absolute',
     height: 70,
+  },
+  individualInput: {
+    borderWidth: 1,
+    borderRadius: 8,
+    marginVertical: 10,
+    marginHorizontal: 5,
+    padding: 12,
+    textAlign: 'center',
+    fontFamily: 'Poppins-Regular',
+    fontSize: 16,
+    width: 50,
+  },
+  individualInputsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    marginBottom: 20,
   },
 });
 

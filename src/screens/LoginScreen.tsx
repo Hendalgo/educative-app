@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, Image, Pressable} from 'react-native';
+import {Text, View, Pressable} from 'react-native';
 import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
 import {useWindowDimensions} from 'react-native';
@@ -7,16 +7,16 @@ import {Animated} from 'react-native';
 import useTranslateYAnimation from '@hooks/useTranslateYAnimation';
 import Input from '@components/Input';
 import EmailIcon from '@assets/icons/EmailIcon';
-import { CustomColors} from 'src/styles/themes';
+import {CustomColors} from 'src/styles/themes';
 import PasswordIcon from '@assets/icons/PasswordIcon';
-import { useKeyboardStatus } from '@hooks/useKeyboardStatus';
+import {useKeyboardStatus} from '@hooks/useKeyboardStatus';
 import Button from '@components/Button';
 import AuthScreen from './AuthScreen';
 
-const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
+const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
   //@ts-ignore
   //Custom colors from the theme
-  const {colors}: {colors:CustomColors}= useTheme();
+  const {colors}: {colors: CustomColors} = useTheme();
 
   // States for inputs
   const [email, setEmail] = useState<string>('');
@@ -39,13 +39,13 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
   // Get the height of the screen
   // This is used to animate the login container
   const {height}: {height: number} = useWindowDimensions();
-  
+
   // Stable the height of the login container
   // This is used to change the height of the login container when the keyboard is open
   // because is ocupying the half of the screen and the image is not visible
   const [maxHeight, setMaxHeight] = useState<number>(0.6);
   const animatedValue = useTranslateYAnimation(height);
-  
+
   const keyboard = useKeyboardStatus();
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
   }, [email, password]);
   //Handle the input for the email
   //Change the color of the input and the icon
-  const handleEmailInput = (e:string) => {
+  const handleEmailInput = (e: string) => {
     const text = e;
     setEmail(text);
     if (text.length > 0) {
@@ -84,9 +84,9 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
         iconColor: colors.neutral1500,
       });
     }
-  }
+  };
   //Handle the input for the password
-  const handlePasswordInput = (e:string) => {
+  const handlePasswordInput = (e: string) => {
     const text = e;
     setPassword(text);
     if (text.length > 0) {
@@ -102,7 +102,7 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
         iconPasswordColor: colors.neutral1500,
       });
     }
-  }
+  };
   return (
     <AuthScreen>
       <Animated.ScrollView
@@ -112,7 +112,7 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
             ...styles.authContainer,
             backgroundColor: colors.neutral000,
             maxHeight: height * maxHeight,
-          }
+          },
         ]}>
         <Text
           style={[
@@ -127,16 +127,12 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
         <Input
           placeholder="Ingresa tu correo electrónico"
           Icon={EmailIcon}
-          iconColor={
-            stylesInputs.iconColor
-          }
-          inputStyle={
-            {
-              borderWidth: 1,
-              backgroundColor: stylesInputs.emailInputColor,
-              borderColor: stylesInputs.emailInputBorderColor,
-            }
-          }
+          iconColor={stylesInputs.iconColor}
+          inputStyle={{
+            borderWidth: 1,
+            backgroundColor: stylesInputs.emailInputColor,
+            borderColor: stylesInputs.emailInputBorderColor,
+          }}
           value={email}
           keyboard="email-address"
           props={{}}
@@ -145,13 +141,11 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
         {/*Password Input*/}
         <Input
           placeholder="Enter your password"
-          inputStyle={
-            {
-              borderWidth: 1,
-              backgroundColor: stylesInputs.passwordInputColor,
-              borderColor: stylesInputs.passwordInputBorderColor,
-            }
-          }
+          inputStyle={{
+            borderWidth: 1,
+            backgroundColor: stylesInputs.passwordInputColor,
+            borderColor: stylesInputs.passwordInputBorderColor,
+          }}
           Icon={PasswordIcon}
           iconColor={stylesInputs.iconPasswordColor}
           secureTextEntry={true}
@@ -161,36 +155,26 @@ const LoginScreen = ({navigation}:{navigation?:any}): React.JSX.Element => {
         />
         {/*Forgot Password*/}
         <View
-          style={
-            {
-              alignItems: 'flex-start',
-              marginTop: 8,
-              marginBottom: 30,
-            }
-          }
-        >
+          style={{
+            alignItems: 'flex-start',
+            marginTop: 8,
+            marginBottom: 30,
+          }}>
           <Pressable
-            onPress={() => navigation.navigate('ForgotPasswordGetEmail')}
-          >
+            onPress={() => navigation.navigate('ForgotPasswordGetEmail')}>
             <Text
-              style={
-                {
-                  color: colors.neutral1200,
-                }
-              }
-            >
+              style={{
+                color: colors.neutral1200,
+              }}>
               ¿Olvidaste tu contraseña?
             </Text>
           </Pressable>
         </View>
         {/*Login Button*/}
         <View
-          style={
-            {
-              marginTop: 10,
-            }
-          }
-        >  
+          style={{
+            marginTop: 10,
+          }}>
           <Button
             title="Continuar"
             type={buttonDisabled}

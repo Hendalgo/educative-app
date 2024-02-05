@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IndividualInputs renders correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "alignContent": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginBottom": 20,
+      },
+      {
+        "backgroundColor": undefined,
+      },
+    ]
+  }
+>
+  <TextInput
+    keyboardType="numeric"
+    maxLength={1}
+    onChangeText={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder="1"
+    style={
+      [
+        {
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "fontFamily": "Poppins-Regular",
+          "fontSize": 16,
+          "marginHorizontal": 5,
+          "marginVertical": 10,
+          "padding": 12,
+          "textAlign": "center",
+          "width": 50,
+        },
+        {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": undefined,
+          "color": undefined,
+        },
+      ]
+    }
+    testID="individualInput-0"
+    value=""
+  />
+  <TextInput
+    keyboardType="numeric"
+    maxLength={1}
+    onChangeText={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder="2"
+    style={
+      [
+        {
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "fontFamily": "Poppins-Regular",
+          "fontSize": 16,
+          "marginHorizontal": 5,
+          "marginVertical": 10,
+          "padding": 12,
+          "textAlign": "center",
+          "width": 50,
+        },
+        {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": undefined,
+          "color": undefined,
+        },
+      ]
+    }
+    testID="individualInput-1"
+    value=""
+  />
+  <TextInput
+    keyboardType="numeric"
+    maxLength={1}
+    onChangeText={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder="3"
+    style={
+      [
+        {
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "fontFamily": "Poppins-Regular",
+          "fontSize": 16,
+          "marginHorizontal": 5,
+          "marginVertical": 10,
+          "padding": 12,
+          "textAlign": "center",
+          "width": 50,
+        },
+        {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": undefined,
+          "color": undefined,
+        },
+      ]
+    }
+    testID="individualInput-2"
+    value=""
+  />
+  <TextInput
+    keyboardType="numeric"
+    maxLength={1}
+    onChangeText={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder="4"
+    style={
+      [
+        {
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "fontFamily": "Poppins-Regular",
+          "fontSize": 16,
+          "marginHorizontal": 5,
+          "marginVertical": 10,
+          "padding": 12,
+          "textAlign": "center",
+          "width": 50,
+        },
+        {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": undefined,
+          "color": undefined,
+        },
+      ]
+    }
+    testID="individualInput-3"
+    value=""
+  />
+</View>
+`;

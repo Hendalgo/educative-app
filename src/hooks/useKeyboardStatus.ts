@@ -1,7 +1,7 @@
-import{ useState, useEffect } from 'react';
-import { Keyboard } from 'react-native';
+import {useState, useEffect} from 'react';
+import {Keyboard} from 'react-native';
 
-export const useKeyboardStatus = ():boolean => {
+export const useKeyboardStatus = (): boolean => {
   const [keyboardStatus, setKeyboardStatus] = useState<boolean>(false);
 
   useEffect(() => {
@@ -9,13 +9,13 @@ export const useKeyboardStatus = ():boolean => {
       'keyboardDidShow',
       () => {
         setKeyboardStatus(true);
-      }
+      },
     );
     const keyboardDidHideListener = Keyboard.addListener(
       'keyboardDidHide',
       () => {
         setKeyboardStatus(false);
-      }
+      },
     );
 
     return () => {

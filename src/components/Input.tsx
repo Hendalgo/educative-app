@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet, TextInputProps, StyleProp} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TextInputProps,
+  StyleProp,
+} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 
 interface InputProps extends TextInputProps {
@@ -38,7 +45,7 @@ const Input = ({
   value,
   ...props
 }: InputProps): React.JSX.Element => {
-  const {colors}:{colors:any} = useTheme();
+  const {colors}: {colors: any} = useTheme();
 
   return (
     <View style={[styles.container]}>
@@ -53,37 +60,29 @@ const Input = ({
           {label}
         </Text>
       )}
-      <View style={
-        {
+      <View
+        style={{
           ...styles.inputContainer,
           backgroundColor: colors.card,
-        }
-      }>
+        }}>
         {Icon && (
-          <View 
-            style={
-              {
-                position: 'absolute',
-                left: 12,
-                zIndex: 1,
-              }
-            }
-            testID="icon"
-          >
+          <View
+            style={{
+              position: 'absolute',
+              left: 12,
+              zIndex: 1,
+            }}
+            testID="icon">
             <Icon color={iconColor} />
           </View>
         )}
         <TextInput
-          style={
-            {
-              ...styles.input,
-              ...inputStyle,
-              ...styles.inputFont,
-            }
-          }
-          placeholderTextColor={
-            colors.neutral1200
-          }
+          style={{
+            ...styles.input,
+            ...inputStyle,
+            ...styles.inputFont,
+          }}
+          placeholderTextColor={colors.neutral1200}
           placeholder={placeholder}
           value={value}
           keyboardType={keyboard}
@@ -103,11 +102,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input: {
-    padding: 10,
+    padding: 12,
     borderRadius: 8,
     width: '100%',
     paddingLeft: 40,
-
   },
   inputContainer: {
     flexDirection: 'row',
