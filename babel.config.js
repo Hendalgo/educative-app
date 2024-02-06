@@ -18,7 +18,6 @@ module.exports = {
           '@contexts': './src/contexts',
           '@reducers': './src/reducers',
           '@interfaces': './src/interfaces',
-          '@services': './src/services',
           '@constants': './src/constants',
         },
       },

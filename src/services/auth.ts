@@ -1,9 +1,10 @@
-import API_INSTANCE from "@constants/Api";
-import User from "@interfaces/User";
+import API_INSTANCE from '@constants/Api';
+import User from '@interfaces/User';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const login = async (email: string, password: string) => {
   try {
-    const response = await API_INSTANCE.post("/auth/login", {
+    const response = await API_INSTANCE.post('/auth/login', {
       username: email,
       password,
     });
@@ -15,11 +16,12 @@ const login = async (email: string, password: string) => {
       email: response.data.email,
       image: response.data.avatar,
       token: response.data.token,
-    }
+    };
+    await AsyncStorage.setItem('token', response.data.token);
     return user;
   } catch (error: any) {
     return error;
   }
 };
 
-export { login };
+export {login};

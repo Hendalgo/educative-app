@@ -3,7 +3,6 @@ import Svg, {Path} from 'react-native-svg';
 
 const BackIcon = ({
   color,
-  size,
 }: {
   color: string;
   size: number;

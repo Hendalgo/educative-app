@@ -3,7 +3,7 @@ import {Image, ImageSourcePropType, Pressable, StyleProp} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {CustomColors} from 'src/styles/themes';
 import {Text} from 'react-native';
-import  globalStyles from '@styles/index';
+import globalStyles from '@styles/index';
 
 interface ButtonProps {
   title?: string;
@@ -31,7 +31,7 @@ const Button = ({
   title,
   onPress,
   type = 'default',
-  image
+  image,
 }: ButtonProps): React.JSX.Element => {
   //@ts-ignore
   const {colors}: {colors: CustomColors} = useTheme();
@@ -79,7 +79,7 @@ const Button = ({
       styleButton.borderColor = colors.primary1200;
     },
     outline: (): void => {
-      styleButton.backgroundColor = "transparent";
+      styleButton.backgroundColor = 'transparent';
       styleButton.borderColor = colors.neutral1200;
       styleButton.borderWidth = 1;
     },
@@ -106,8 +106,7 @@ const Button = ({
         },
       ]}
       onPress={onPress}>
-      {
-        image &&
+      {image && (
         <Image
           source={image}
           style={{
@@ -115,9 +114,8 @@ const Button = ({
             alignSelf: 'center',
           }}
         />
-      }
-      {
-        title &&
+      )}
+      {title && (
         <Text
           style={{
             ...styleText,
@@ -128,7 +126,7 @@ const Button = ({
           }}>
           {title}
         </Text>
-      }
+      )}
     </Pressable>
   );
 };

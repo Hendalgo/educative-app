@@ -1,23 +1,27 @@
 // Importing necessary dependencies
-import React, { useEffect } from "react";
-import { Text, StyleProp, Animated, useWindowDimensions } from "react-native";
-import { useTheme } from "@react-navigation/native";
-import { CustomColors } from "@styles/themes";
-import styles from "@styles/index";
-import AuthScreen from "./AuthScreen";
-import Button from "@components/Button";
-import Input from "@components/Input";
-import useTranslateYAnimation from "@hooks/useTranslateYAnimation";
+import React, {useEffect} from 'react';
+import {Text, StyleProp, Animated, useWindowDimensions} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import {CustomColors} from '@styles/themes';
+import styles from '@styles/index';
+import AuthScreen from './AuthScreen';
+import Button from '@components/Button';
+import Input from '@components/Input';
+import useTranslateYAnimation from '@hooks/useTranslateYAnimation';
 
 // Defining the ChangePasswordScreen component
-const ChangePasswordScreen = ({ navigation }: { navigation: any }): React.JSX.Element => {
+const ChangePasswordScreen = ({
+  navigation,
+}: {
+  navigation: any;
+}): React.JSX.Element => {
   //@ts-ignore
-  const { colors }: { colors: CustomColors } = useTheme();
+  const {colors}: {colors: CustomColors} = useTheme();
 
   // State variables
-  const [inputValues, setInputValues] = React.useState<string[]>(["", ""]);
+  const [inputValues, setInputValues] = React.useState<string[]>(['', '']);
   const [error, setError] = React.useState<string>('');
-  const { height }: { height: number } = useWindowDimensions();
+  const {height}: {height: number} = useWindowDimensions();
   const animatedValue = useTranslateYAnimation(height);
   const [buttonDisabled, setButtonDisabled] = React.useState<any>('disable');
   const [passwordStyles, setPasswordStyles] = React.useState<StyleProp<any>>({
@@ -25,7 +29,9 @@ const ChangePasswordScreen = ({ navigation }: { navigation: any }): React.JSX.El
     borderColor: colors.neutral300,
     color: colors.neutral600,
   });
-  const [confirmPasswordStyles, setConfirmPasswordStyles] = React.useState<StyleProp<any>>({
+  const [confirmPasswordStyles, setConfirmPasswordStyles] = React.useState<
+    StyleProp<any>
+  >({
     backgroundColor: colors.neutral000,
     borderColor: colors.neutral300,
     color: colors.neutral600,
@@ -65,7 +71,7 @@ const ChangePasswordScreen = ({ navigation }: { navigation: any }): React.JSX.El
         });
       }
     }
-  }
+  };
 
   // Effect hook to animate the view based on window height
   useEffect(() => {
@@ -84,27 +90,40 @@ const ChangePasswordScreen = ({ navigation }: { navigation: any }): React.JSX.El
   // Rendering the component
   return (
     <AuthScreen>
-      <Animated.View style={
-        {
+      <Animated.View
+        style={{
           ...styles.authContainer,
           top: animatedValue.translateY,
           backgroundColor: colors.neutral000,
-        }
-      }>
-        <Text style={{ ...styles.title, fontSize: 20, color: colors.black, ...styles.textCenter }}>Cambiar contraseña</Text>
-        <Text style={{ ...styles.subtitle, ...styles.textCenter, color: colors.neutral900 }}>Su nueva contraseña debe ser diferente de la contraseña utilizada anteriormente</Text>
+        }}>
+        <Text
+          style={{
+            ...styles.title,
+            fontSize: 20,
+            color: colors.black,
+            ...styles.textCenter,
+          }}>
+          Cambiar contraseña
+        </Text>
+        <Text
+          style={{
+            ...styles.subtitle,
+            ...styles.textCenter,
+            color: colors.neutral900,
+          }}>
+          Su nueva contraseña debe ser diferente de la contraseña utilizada
+          anteriormente
+        </Text>
         <Input
           placeholder="Contraseña"
           secureTextEntry={true}
           value={inputValues[0]}
-          inputStyle={
-            {
-              ...passwordStyles,
-              borderWidth: 1,
-              marginTop: 10,
-              paddingLeft: 20,
-            }
-          }
+          inputStyle={{
+            ...passwordStyles,
+            borderWidth: 1,
+            marginTop: 10,
+            paddingLeft: 20,
+          }}
           props={{}}
           onChangeText={(e: string) => handleText(e, 0)}
         />
@@ -112,21 +131,27 @@ const ChangePasswordScreen = ({ navigation }: { navigation: any }): React.JSX.El
           value={inputValues[1]}
           placeholder="Confirmar contraseña"
           secureTextEntry={true}
-          inputStyle={
-            {
-              ...confirmPasswordStyles,
-              borderWidth: 1,
-              marginBottom: 14,
-              paddingLeft: 20,
-            }
-          }
+          inputStyle={{
+            ...confirmPasswordStyles,
+            borderWidth: 1,
+            marginBottom: 14,
+            paddingLeft: 20,
+          }}
           props={{}}
           onChangeText={(e: string) => handleText(e, 1)}
         />
-        {
-          error.length > 0 &&
-          <Text style={{ ...styles.subtitle, color: "red", ...styles.textCenter, marginBottom: 18, marginTop: 0 }}>{error}</Text>
-        }
+        {error.length > 0 && (
+          <Text
+            style={{
+              ...styles.subtitle,
+              color: 'red',
+              ...styles.textCenter,
+              marginBottom: 18,
+              marginTop: 0,
+            }}>
+            {error}
+          </Text>
+        )}
         <Button
           title="Cambiar contraseña"
           onPress={() => {
@@ -148,7 +173,7 @@ const ChangePasswordScreen = ({ navigation }: { navigation: any }): React.JSX.El
         />
       </Animated.View>
     </AuthScreen>
-  )
-}
+  );
+};
 
 export default ChangePasswordScreen;

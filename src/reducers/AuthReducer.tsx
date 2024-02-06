@@ -1,15 +1,14 @@
-import { AuthAction, AuthState } from "src/interfaces/Auth";
+import {AuthAction, AuthState} from 'src/interfaces/Auth';
 
 const AuthReducer = (state: AuthState, action: AuthAction): AuthState => {
-  console.log(action.type, action.payload)
   switch (action.type) {
-    case "login":
+    case 'login':
       return {
         ...state,
         user: action.payload,
         isAuthenticated: true,
       };
-    case "LOGOUT":
+    case 'LOGOUT':
       return {
         ...state,
         user: null,

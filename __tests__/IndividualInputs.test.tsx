@@ -1,3 +1,4 @@
+import React from 'react';
 import IndividualInputs from '@components/IndividualInputs';
 import {fireEvent, render} from '@testing-library/react-native';
 import {useState} from 'react';
@@ -40,6 +41,5 @@ describe('IndividualInputs', () => {
     const input4 = getByTestId('individualInput-3');
     fireEvent.changeText(input4, '4');
     expect(input4.props.value).toBe('4');
-  }
-  );
+  });
 });

@@ -1,5 +1,4 @@
-
-import User  from '@interfaces/User';
+import User from '@interfaces/User';
 export interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
@@ -10,5 +9,5 @@ export interface AuthAction {
 }
 export interface IAuthContext {
   authState: AuthState;
-  authDispatch: ({type, payload}:AuthAction) => void;
+  authDispatch: ({type, payload}: AuthAction) => void;
 }

@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   individualInputsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignContent: 'center'
+    alignContent: 'center',
   },
   errorText: {
     color: 'red',
@@ -74,12 +74,18 @@ const styles = StyleSheet.create({
     height: 1,
     width: '100%',
   },
-  button:{
+  button: {
     padding: 12,
     borderRadius: 8,
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  dot:{
+    height: 5,
+    borderRadius: 5,
+    backgroundColor: 'black',
+    margin: 5
   }
 });
 

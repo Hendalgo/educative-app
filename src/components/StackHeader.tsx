@@ -7,8 +7,6 @@ import BackIcon from '@assets/icons/BackIcon';
 
 interface StackHeaderProps {
   navigation: any;
-  route: any;
-  options: any;
   back: any;
   title?: string;
 }
@@ -29,7 +27,7 @@ const StackHeader = ({
         },
       ]}>
       {back ? (
-        <Pressable testID='back-button' onPress={() => navigation.goBack()}>
+        <Pressable testID="back-button" onPress={() => navigation.goBack()}>
           <BackIcon color={colors.neutral000} size={32} />
         </Pressable>
       ) : (

@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 const API_INSTANCE = axios.create({
-  baseURL: "https://dummyjson.com",
+  baseURL: 'https://dummyjson.com',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 

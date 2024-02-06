@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useReducer } from "react";
-import AuthReducer from "@reducers/AuthReducer";
+import React, {createContext, useReducer} from 'react';
+import AuthReducer from '@reducers/AuthReducer';
 
 // Create context
 const AuthContext = createContext<any>(null);
@@ -14,6 +14,6 @@ const AuthProvider = ({children}: React.PropsWithChildren<{}>) => {
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
-export { AuthProvider, AuthContext };
+export {AuthProvider, AuthContext};

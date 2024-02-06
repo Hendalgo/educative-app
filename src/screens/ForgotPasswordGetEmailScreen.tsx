@@ -47,66 +47,65 @@ const ForgotPasswordGetEmailScreen = ({
   useEffect(() => {
     animatedValue.animate();
   }, [height]);
-    useEffect(() => {
-      if (email.length > 0) {
-        setButtonDisabled('primary');
-      } else {
-        setButtonDisabled('disable');
-      }
-    }, [email]);
+  useEffect(() => {
+    if (email.length > 0) {
+      setButtonDisabled('primary');
+    } else {
+      setButtonDisabled('disable');
+    }
+  }, [email]);
 
-    const handleButton = () => {
-      if (buttonDisabled === 'primary') {
-        navigation.navigate('ForgotPasswordGetCode');
-      }
-    };
-    return (
-      <AuthScreen>
-        <Animated.View
-          style={{
-            top: animatedValue.translateY,
-            ...styles.authContainer,
-            backgroundColor: colors.neutral000,
-            maxHeight: height * maxHeight,
-          }}>
-          <Text
-            style={{
-              color: colors.black,
-              ...styles.title,
-              ...styles.textCenter,
-              fontSize: 18,
-            }}
-          >
-            Recuperar contraseña
-          </Text>
-          <Text
-            style={{
-              ...styles.subtitle,
-              ...styles.textCenter,
-              color: colors.neutral1500,
-            }}
-          >
-            Ingrese su dirección de correo electrónico para recibir un código de verificación
-          </Text>
-          <Input
-            placeholder="Ingresa tu correo electrónico"
-            Icon={EmailIcon}
-            iconColor={stylesInputs.iconColor}
-            inputStyle={{
-              borderWidth: 1,
-              backgroundColor: stylesInputs.emailInputColor,
-              borderColor: stylesInputs.emailInputBorderColor,
-              marginTop: 10,
-              marginBottom: 14,
-            }}
-            value={email}
-            keyboard="email-address"
-            props={{}}
-            onChangeText={handleEmailInput}
-          />
-          <Button title="Enviar" type={buttonDisabled} onPress={handleButton} />
-        </Animated.View>
-      </AuthScreen>
-    );
+  const handleButton = () => {
+    if (buttonDisabled === 'primary') {
+      navigation.navigate('ForgotPasswordGetCode');
+    }
   };
+  return (
+    <AuthScreen>
+      <Animated.View
+        style={{
+          top: animatedValue.translateY,
+          ...styles.authContainer,
+          backgroundColor: colors.neutral000,
+          maxHeight: height * maxHeight,
+        }}>
+        <Text
+          style={{
+            color: colors.black,
+            ...styles.title,
+            ...styles.textCenter,
+            fontSize: 18,
+          }}>
+          Recuperar contraseña
+        </Text>
+        <Text
+          style={{
+            ...styles.subtitle,
+            ...styles.textCenter,
+            color: colors.neutral1500,
+          }}>
+          Ingrese su dirección de correo electrónico para recibir un código de
+          verificación
+        </Text>
+        <Input
+          placeholder="Ingresa tu correo electrónico"
+          Icon={EmailIcon}
+          iconColor={stylesInputs.iconColor}
+          inputStyle={{
+            borderWidth: 1,
+            backgroundColor: stylesInputs.emailInputColor,
+            borderColor: stylesInputs.emailInputBorderColor,
+            marginTop: 10,
+            marginBottom: 14,
+          }}
+          value={email}
+          keyboard="email-address"
+          props={{}}
+          onChangeText={handleEmailInput}
+        />
+        <Button title="Enviar" type={buttonDisabled} onPress={handleButton} />
+      </Animated.View>
+    </AuthScreen>
+  );
+};
 export default ForgotPasswordGetEmailScreen;

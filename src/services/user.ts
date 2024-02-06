@@ -8,15 +8,15 @@ export const getUser = async (id: string) => {
   } catch (error) {
     throw error;
   }
-}
+};
 export const logedUser = async (token?: any) => {
   try {
-    const response = await API_INSTANCE.get(`/auth/me`,
-    {
+    const response = await API_INSTANCE.get('/auth/me', {
       headers: {
-        Authorization: `Bearer ${token? token : await AsyncStorage.getItem('access_token')}`
-      }
-    
+        Authorization: `Bearer ${
+          token ? token : await AsyncStorage.getItem('token')
+        }`,
+      },
     });
     const user: User = {
       id: response.data.id,
@@ -26,9 +26,9 @@ export const logedUser = async (token?: any) => {
       email: response.data.email,
       image: response.data.avatar,
       token: token,
-    }
+    };
     return user;
   } catch (error: any) {
     return error;
   }
-}
+};

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Image, useWindowDimensions} from 'react-native';
 import styles from '../styles';
 import {useTheme} from '@react-navigation/native';
 import {CustomColors} from 'src/styles/themes';
-import { useKeyboardStatus } from '@hooks/useKeyboardStatus';
+import {useKeyboardStatus} from '@hooks/useKeyboardStatus';
 
 const AuthScreen = ({
   children,
@@ -16,7 +16,7 @@ const AuthScreen = ({
   const {height} = useWindowDimensions();
   const keyboard = useKeyboardStatus();
   const [maxHeight, setMaxHeight] = useState<number>(0.65);
-  
+
   useEffect(() => {
     if (keyboard) {
       setMaxHeight(0.4);

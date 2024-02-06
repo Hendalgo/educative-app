@@ -12,18 +12,15 @@ import PasswordIcon from '@assets/icons/PasswordIcon';
 import {useKeyboardStatus} from '@hooks/useKeyboardStatus';
 import Button from '@components/Button';
 import AuthScreen from './AuthScreen';
-import { AuthContext } from '@contexts/AuthContext';
-import { IAuthContext } from '@interfaces/Auth';
-import { login } from '@services/auth';
-import { logedUser } from '@services/user';
-import User from '@interfaces/User';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {AuthContext} from '@contexts/AuthContext';
+import {IAuthContext} from '@interfaces/Auth';
+import {login} from '@services/auth';
 
 const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
   //@ts-ignore
   //Custom colors from the theme
   const {colors}: {colors: CustomColors} = useTheme();
-  const {authState, authDispatch}:IAuthContext = useContext(AuthContext);
+  const {authDispatch}: IAuthContext = useContext(AuthContext);
   // States for inputs
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -49,18 +46,8 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
   // Stable the height of the login container
   // This is used to change the height of the login container when the keyboard is open
   // because is ocupying the half of the screen and the image is not visible
-  const [maxHeight, setMaxHeight] = useState<number>(0.6);
   const animatedValue = useTranslateYAnimation(height);
 
-  const keyboard = useKeyboardStatus();
-
-  useEffect(() => {
-    if (keyboard) {
-      setMaxHeight(0.4);
-    } else {
-      setMaxHeight(0.6);
-    }
-  }, [keyboard]);
   useEffect(() => {
     //Animate Login container
     animatedValue.animate();
@@ -110,20 +97,25 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
     }
   };
   const handleLogin = () => {
-    setButtonDisabled('disable')
+    setButtonDisabled('disable');
     setError('');
-    if (email.length > 0 && password.length > 0 && buttonDisabled === 'primary') {
-      login(email, password).then((user) => {
-        if (user) {
-          console.log('Loged');
-          authDispatch({type: 'login', payload: user});
-        }
-      }).catch((error: any) => {
-        setError(error.message);
-        setButtonDisabled('primary')
-      });
+    if (
+      email.length > 0 &&
+      password.length > 0 &&
+      buttonDisabled === 'primary'
+    ) {
+      login(email, password)
+        .then(user => {
+          if (user) {
+            authDispatch({type: 'login', payload: user});
+          }
+        })
+        .catch((error: any) => {
+          setError(error.message);
+          setButtonDisabled('primary');
+        });
     }
-  }
+  };
   return (
     <AuthScreen>
       <Animated.ScrollView
@@ -191,9 +183,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
           </Pressable>
         </View>
         {/*Error Message*/}
-        {
-          error
-          &&
+        {error && (
           <View
             style={{
               alignItems: 'center',
@@ -207,7 +197,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
               {error}
             </Text>
           </View>
-        }
+        )}
         {/*Login Button*/}
         <View
           style={{
@@ -227,20 +217,19 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
             flexDirection: 'row',
             gap: 10,
             alignContent: 'center',
-          }}
-        >
+          }}>
           <View
             style={{
               ...styles.divider,
               backgroundColor: colors.neutral300,
             }}
-          ></View>
+          />
           <Text
             style={{
               color: colors.neutral900,
               fontFamily: 'Poppins-Regular',
-            }}
-          >o
+            }}>
+            o
           </Text>
           <View
             style={{
@@ -248,8 +237,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
               backgroundColor: colors.neutral300,
               marginBottom: 20,
             }}
-          >
-          </View>
+          />
         </View>
         {/*Login with Google*/}
         <Button
