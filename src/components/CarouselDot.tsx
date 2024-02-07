@@ -22,13 +22,14 @@ const CarouselDot = ({index,carouselWidth: width, animation, extrapolate}:Carous
   })
   const dotWidth = animation.interpolate({
     inputRange,
-    outputRange: [5, 10, 5],
+    outputRange: [8, 24, 8],
     extrapolate
   })
   return(
     <Animated.View
+      testID={"carousel-dot"}
       style={{
-        ...styles.dot,
+        ...styles.carouselDot,
         backgroundColor: colors.neutral000,
         opacity: dotOpacity,
         width: dotWidth

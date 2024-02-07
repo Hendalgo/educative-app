@@ -51,8 +51,9 @@ const Button = ({
       styleText.color = colors.neutral000;
     },
     secondary: (): void => {
-      styleButton.backgroundColor = colors.primary1200;
+      styleButton.backgroundColor = colors.neutral000;
       styleButton.borderColor = colors.primary1200;
+      styleText.color = colors.primary000;
     },
     warning: (): void => {
       styleButton.backgroundColor = colors.primary1200;
