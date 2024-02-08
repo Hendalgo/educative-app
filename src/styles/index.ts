@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 // Definition of constants for vertical and horizontal padding
 const VERTICAL_PADDING = 30;
-const HORIZONTAL_PADDING = 20;
+export const HORIZONTAL_PADDING = 20;
 
 const styles = StyleSheet.create({
   // General styles
@@ -136,6 +136,26 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
   },
+  /**Styles for Tab bar  */
+  tabBarButton:{
+    padding: 12,
+    borderRadius: 20,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  tabBarText:{
+    fontSize: 14,
+    fontWeight: 'bold',
+    fontFamily: 'Poppins-Regular',
+  },
+  tabBarButtonContainer:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  tabBar:{
+  }
 });
 
 export default styles;

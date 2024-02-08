@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import {SafeAreaView, View, useWindowDimensions} from "react-native";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import {BackHandler, SafeAreaView, View, useWindowDimensions} from "react-native";
 import styles from "@styles/index";
 import Carousel from "@components/Carousel";
 import Button from "@components/Button";
@@ -7,15 +7,17 @@ import TutorialElement from "@components/TutorialElement";
 import { NavigationProp, useTheme } from "@react-navigation/native";
 import { CustomColors } from "@styles/themes";
 import StackHeader from "@components/StackHeader";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { TutorialContext } from "@contexts/TutorialContext";
 
-const TutorialScreen = ({navigation}:{navigation:NavigationProp<any>}): React.JSX.Element => {
+const TutorialScreen = (): React.JSX.Element => {
   //@ts-ignore
   const {colors}:{colors: CustomColors} = useTheme();
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const {width} = useWindowDimensions();
   const [textButton, setTextButton] = useState<string>("Continuar");
   const [backButton, setBackButton] = useState<boolean>(false);
+  //tutorial was watche? true was watched, false was not watched
+  const watchedTutorial:any = useContext(TutorialContext);
   const carouselRef = useRef(null);
   const pageChange = (currentPage: number) => {
     currentPage === 0 ? setBackButton(false) : setBackButton(true);
@@ -38,6 +40,17 @@ const TutorialScreen = ({navigation}:{navigation:NavigationProp<any>}): React.JS
       carouselRef.current?.scrollToNext();
     }
   }
+  useEffect(() => {
+    const backAction =  BackHandler.addEventListener("hardwareBackPress", () => {
+      if(backButton){
+        if(!isScrolling) handleBack();
+        return true;
+      }
+      return false;
+    })
+
+    return () => backAction.remove();
+  }), [];
   return(
     <>
       <StackHeader
@@ -91,7 +104,8 @@ const TutorialScreen = ({navigation}:{navigation:NavigationProp<any>}): React.JS
               type="secondary"
               onPress={()=>{
                 if(textButton === "Empecemos!!!"){
-                  navigation.navigate("Home");
+                  //ToDo: Save in AsyncStorage that the user has already seen the tutorial
+                  watchedTutorial[1](true);
                 } else {
                   if(!isScrolling) handleNext();
                 }

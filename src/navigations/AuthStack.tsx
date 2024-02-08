@@ -5,6 +5,7 @@ import ForgotPasswordGetEmailScreen from '@screens/ForgotPasswordGetEmailScreen'
 import StackHeader from '@components/StackHeader';
 import VerifyCodeScreen from '@screens/VerifyCodeScreen';
 import ChangePasswordScreen from '@screens/ChangePasswordScreen';
+import ROUTE from '@constants/routes';
 
 const Stack = createStackNavigator();
 
@@ -31,15 +32,15 @@ const AuthStack = (): React.JSX.Element => {
           ),
         }}>
         <Stack.Screen
-          name="ForgotPasswordGetEmail"
+          name={ROUTE.FORGOT_PASSWORD_GET_EMAIL}
           component={ForgotPasswordGetEmailScreen}
         />
         <Stack.Screen
-          name="ForgotPasswordGetCode"
+          name={ROUTE.VERIFY_CODE}
           component={VerifyCodeScreen}
         />
         <Stack.Screen
-          name="ChangePasswordScreen"
+          name={ROUTE.RESET_PASSWORD}
           component={ChangePasswordScreen}
         />
       </Stack.Group>

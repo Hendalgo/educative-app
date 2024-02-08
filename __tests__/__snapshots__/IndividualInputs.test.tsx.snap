@@ -8,7 +8,6 @@ exports[`IndividualInputs renders correctly 1`] = `
         "alignContent": "center",
         "flexDirection": "row",
         "justifyContent": "center",
-        "marginBottom": 20,
       },
       {
         "backgroundColor": undefined,

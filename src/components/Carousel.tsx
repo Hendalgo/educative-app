@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Animated, View} from "react-native";
 import styles from "@styles/index";
 import CarouselDot from "./CarouselDot";

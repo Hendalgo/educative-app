@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import MainStack from '@navigations/MainStack';
+import TutorialNavigationStack from '@navigations/TutorialNavigationStack';
 import LoadingScreen from '@screens/LoadingScreen';
 import {useColorScheme} from 'react-native';
 import {darkTheme, lightTheme} from '@styles/themes';
@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {logedUser} from '@services/user';
 import User from '@interfaces/User';
 import {IAuthContext} from '@interfaces/Auth';
+import { TutorialProvider } from '@contexts/TutorialContext';
 
 const MainNavigation = (): React.JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -24,8 +25,11 @@ const MainNavigation = (): React.JSX.Element => {
             if (user) {
               authDispatch({type: 'login', payload: user});
             }
-          });
+          }).finally(() => {
+            setIsLoading(false);
+          })
         }
+      }).finally(() => {
         setIsLoading(false);
       });
     } else {
@@ -38,7 +42,9 @@ const MainNavigation = (): React.JSX.Element => {
       {isLoading ? (
         <LoadingScreen />
       ) : authState.isAuthenticated ? (
-        <MainStack />
+        <TutorialProvider>
+          <TutorialNavigationStack />
+        </TutorialProvider>
       ) : (
         <AuthStack />
       )}

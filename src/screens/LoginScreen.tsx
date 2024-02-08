@@ -9,7 +9,6 @@ import Input from '@components/Input';
 import EmailIcon from '@assets/icons/EmailIcon';
 import {CustomColors} from 'src/styles/themes';
 import PasswordIcon from '@assets/icons/PasswordIcon';
-import {useKeyboardStatus} from '@hooks/useKeyboardStatus';
 import Button from '@components/Button';
 import AuthScreen from './AuthScreen';
 import {AuthContext} from '@contexts/AuthContext';

@@ -34,9 +34,13 @@ exports[`Test Button Componet Should render the button component 1`] = `
   style={
     [
       {
+        "alignItems": "center",
         "backgroundColor": undefined,
         "borderColor": undefined,
         "borderRadius": 8,
+        "height": 48,
+        "justifyContent": "center",
+        "marginTop": "auto",
         "padding": 12,
       },
     ]

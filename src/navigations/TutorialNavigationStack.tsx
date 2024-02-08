@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoadingScreen from '@screens/LoadingScreen';
 import TutorialScreen from '@screens/TutorialScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { View, Text } from 'react-native';
+import MainNavigationTabs from './MainNavigationTabs';
+import { TutorialContext } from '@contexts/TutorialContext';
+import ROUTE from '@constants/routes';
 
 const Stack: any = createStackNavigator();
 
-const MainStack = (): React.JSX.Element => {
+const TutorialNavigationStack = (): React.JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [tutorial, setTutorial] = useState<boolean>(false);
+  const [tutorial, setTutorial]:any = useContext(TutorialContext);
 
   useEffect(() => {
     AsyncStorage.getItem('tutorial').then(tutorial => {
@@ -32,14 +34,12 @@ const MainStack = (): React.JSX.Element => {
           headerShown: false
         }}
       >
-        <Stack.Screen name="Tutorial" component={TutorialScreen} prop ={[tutorial, setTutorial]} />
+        <Stack.Screen name={ROUTE.TUTORIAL} component={TutorialScreen} />
       </Stack.Navigator>
     ) : (
-      <View>
-        <Text>Home Screen</Text>
-      </View>
+      <MainNavigationTabs />
     )
   );
 };
 
-export default MainStack;
+export default TutorialNavigationStack;
