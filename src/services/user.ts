@@ -29,6 +29,6 @@ export const logedUser = async (token?: any) => {
     };
     return user;
   } catch (error: any) {
-    return error;
+    throw error;
   }
 };

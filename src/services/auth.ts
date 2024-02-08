@@ -10,11 +10,11 @@ const login = async (email: string, password: string) => {
     });
     const user: User = {
       id: response.data.id,
-      firstname: response.data.firstname,
-      lastname: response.data.lastname,
+      firstname: response.data.firstName,
+      lastname: response.data.lastName,
       gender: response.data.gender,
       email: response.data.email,
-      image: response.data.avatar,
+      image: response.data.image,
       token: response.data.token,
     };
     await AsyncStorage.setItem('token', response.data.token);

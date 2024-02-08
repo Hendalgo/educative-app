@@ -5,7 +5,7 @@ export interface AuthState {
 }
 export interface AuthAction {
   type: string;
-  payload: User;
+  payload: User | null;
 }
 export interface IAuthContext {
   authState: AuthState;

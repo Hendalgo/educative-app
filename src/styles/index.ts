@@ -138,23 +138,25 @@ const styles = StyleSheet.create({
   },
   /**Styles for Tab bar  */
   tabBarButton:{
-    padding: 12,
-    borderRadius: 20,
-    height: 40,
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10, 
+    borderRadius: 10,
+    gap: 10,
   },
   tabBarText:{
     fontSize: 14,
     fontWeight: 'bold',
     fontFamily: 'Poppins-Regular',
   },
-  tabBarButtonContainer:{
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
   tabBar:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: HORIZONTAL_PADDING,
+    paddingVertical: VERTICAL_PADDING,
+    backgroundColor: 'transparent',
   }
 });
 

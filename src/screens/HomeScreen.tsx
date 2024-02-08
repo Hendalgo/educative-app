@@ -1,19 +1,33 @@
-import React from "react";
-import { SafeAreaView } from "react-native";
+import React, { useContext } from "react";
+import {Text, View, Animated, Pressable } from "react-native";
+import { AuthContext } from "@contexts/AuthContext";
+import { IAuthContext } from "@interfaces/Auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const HomeScreen = (): React.JSX.Element => {
+  const {authState, authDispatch}:IAuthContext = useContext(AuthContext);
+  console.log(authState);
   return (
-    <SafeAreaView
-      style={
-        {
-          backgroundColor: 'white',
-          width: '100%',
-          height: '100%',
-        }
-      }
-    >
-      {/* Your code here */}
-    </SafeAreaView>
+    <Animated.ScrollView>
+      <View>
+        <View>
+          <Text>
+            Hola,
+          </Text>
+          <Text>
+            {`${authState.user?.firstname} ${authState.user?.lastname}`}
+          </Text>
+        </View>
+        <Pressable
+          onPress={() => {
+            authDispatch({type: 'LOGOUT', payload: null});
+            AsyncStorage.removeItem('token');
+          }}
+        >
+          <Text>Logout</Text>
+        </Pressable>
+      </View>
+    </Animated.ScrollView>
   );
 }
 
