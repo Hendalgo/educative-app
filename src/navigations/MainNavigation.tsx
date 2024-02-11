@@ -12,6 +12,7 @@ import User from '@interfaces/User';
 import {IAuthContext} from '@interfaces/Auth';
 import {TutorialProvider} from '@contexts/TutorialContext';
 import ROUTES from '@constants/routes';
+import { AUTH_REDUCER_ACTIONS } from '@constants/reducersActions';
 
 const MainNavigation = (): React.JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -26,7 +27,7 @@ const MainNavigation = (): React.JSX.Element => {
             logedUser(token)
               .then((user: User) => {
                 if (user) {
-                  authDispatch({type: ROUTES.LOGIN, payload: user});
+                  authDispatch({type: AUTH_REDUCER_ACTIONS.LOGIN, payload: user});
                 }
               })
               .finally(() => {

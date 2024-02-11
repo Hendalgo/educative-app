@@ -20,8 +20,8 @@ export const logedUser = async (token?: any) => {
     });
     const user: User = {
       id: response.data.id,
-      firstname: response.data.firstname,
-      lastname: response.data.lastname,
+      firstname: response.data.firstName,
+      lastname: response.data.lastName,
       gender: response.data.gender,
       email: response.data.email,
       image: response.data.avatar,

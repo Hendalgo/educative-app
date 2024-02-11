@@ -6,6 +6,7 @@ import en from '@locales/en/en.json';
 import tr from '@locales/tr/tr.json';
 
 i18n.use(initReactI18next).init({
+  compatibilityJSON: 'v3',
   resources: {
     es: {
       translation: es,
@@ -17,7 +18,7 @@ i18n.use(initReactI18next).init({
       translation: tr,
     }
   },
-  lng: 'en',
+  lng: 'es',
   fallbackLng: 'es',
 });
 
