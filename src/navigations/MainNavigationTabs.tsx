@@ -4,6 +4,7 @@ import HomeScreen from "@screens/HomeScreen";
 import ROUTES from "@constants/routes";
 import { HORIZONTAL_PADDING } from "@styles/index";
 import TabBar from "@components/TabBar";
+import HomeStackNavigation from "./HomeStackNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +16,7 @@ const MainNavigationTabs = ():React.JSX.Element => {
       }}
       tabBar={(props) => <TabBar {...props}/>}
     >
-      <Tab.Screen name={ROUTES.HOME} component={HomeScreen}
+      <Tab.Screen name={ROUTES.HOME_STACK} component={HomeStackNavigation}
         options={{
           tabBarLabel: 'Inicio',
         }}

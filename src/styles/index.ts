@@ -80,8 +80,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     paddingVertical: VERTICAL_PADDING,
     paddingHorizontal: HORIZONTAL_PADDING,
-    height: 70,
-    zIndex: 100,
+    zIndex: 999,
     backgroundColor: 'transparent',
   },
 
@@ -157,7 +156,32 @@ const styles = StyleSheet.create({
     paddingHorizontal: HORIZONTAL_PADDING,
     paddingVertical: VERTICAL_PADDING,
     backgroundColor: 'transparent',
-  }
+    position: 'absolute',
+    bottom: 0,
+  },
+  /**Circle Button Styles */
+  circleButton:{
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  containerWithShadow:{
+    shadowColor: '#1474E1',
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 50,
+    elevation: 20, 
+    paddingHorizontal: HORIZONTAL_PADDING,
+    paddingVertical: VERTICAL_PADDING,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20
+  },
+
 });
 
 export default styles;
