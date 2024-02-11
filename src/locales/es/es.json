@@ -1,0 +1,72 @@
+{
+  "verifyEmail": {
+    "title": "Verifica tu dirección de correo electrónico",
+    "subtitle": "Verifica tu dirección de correo electrónico {{email}}.",
+    "wrongCode": "El código es incorrecto. Por favor, inténtalo de nuevo."
+  },
+  "tutorialButton":{
+    "continue": "Continuar",
+    "start": "Empecemos!!!"
+  },
+  "tutorial": {
+    "first": {
+      "title": "Aprende donde estes.",
+      "description": "Con esta aplicación seras capaz de complementar tus conocimientos sin importar el sitio en el que te encuentres."
+    },
+    "second": {
+      "title": "No pierdas apuntes.",
+      "description": "Haz anotaciones de las clases vistas y revísalas en el momento que desees sin el riesgo de que las pierdas."
+    },
+    "third": {
+      "title": "Sube en el ranking.",
+      "description": "Saca a flote tu competitividad y obten puntos de ranking por completar clases o hacer exámenes."
+    }
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "emailPlaceholder": "Ingresa tu correo electrónico",
+    "passwordPlaceholder": "Ingresa tu contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "loginButton": "Iniciar sesión",
+    "register": "Registrarse",
+    "error": "Correo electrónico o contraseña incorrectos"
+  },
+  "welcome": "Hola,",
+  "forgotPassword": {
+    "title": "Recuperar contraseña",
+    "subtitle": "Ingresa tu dirección de correo electrónico para recibir un código de verificación",
+    "emailPlaceholder": "Ingresa tu correo electrónico",
+    "sendButton": "Enviar",
+    "back": "Regresar"
+  },
+  "changePassword":{
+    "title": "Cambiar contraseña",
+    "subtitle": "Tu nueva contraseña debe ser distinta a la usada anteriormente.",
+    "passwordPlaceholder": "Ingresa tu nueva contraseña",
+    "confirmPasswordPlaceholder": "Confirma tu nueva contraseña",
+    "button": "Cambiar",
+    "error": "Las contraseñas no coinciden"
+  },
+  "tabs":{
+    "home": "Inicio",
+    "courses": "Clases",
+    "quizzes": "Exámenes",
+    "ranking": "Ranking",
+    "profile": "Perfil"
+  },
+  "resumeBox": {
+    "title": "Tus Estadísticas semanales",
+    "first":{
+      "title": "{{hours}} Horas",
+      "subtitle": "de estudio"
+    },
+    "second":{
+      "title": "{{approved}} Exámenes",
+      "subtitle": "aprobados"
+    },
+    "third":{
+      "title": "{{points}} Puntos",
+      "subtitle": "de ranking"
+    }
+  }
+}

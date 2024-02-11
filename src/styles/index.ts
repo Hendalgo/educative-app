@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 'auto',
   },
-  bodyTutorial:{
+  bodyTutorial: {
     fontFamily: 'Poppins-Regular',
     fontSize: 16,
     textAlign: 'center',
@@ -103,53 +103,53 @@ const styles = StyleSheet.create({
   },
 
   // Styles for the carousel
-  carouselDotContainer:{
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+  carouselDotContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 20,
   },
-  carouselContentContainer:{
+  carouselContentContainer: {
     flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  carouselDot:{
+  carouselDot: {
     height: 8,
     borderRadius: 5,
-    margin: 5
+    margin: 5,
   },
   // Styles for the tutorial screen
-  tutorialScreenContainer:{
+  tutorialScreenContainer: {
     paddingHorizontal: HORIZONTAL_PADDING,
     paddingBottom: VERTICAL_PADDING,
     flex: 1,
     overflow: 'visible',
     justifyContent: 'space-between',
   },
-  tutorialContainer:{
+  tutorialContainer: {
     justifyContent: 'center',
   },
-  tutorialImage:{
+  tutorialImage: {
     resizeMode: 'contain',
     alignSelf: 'center',
     justifyContent: 'center',
   },
   /**Styles for Tab bar  */
-  tabBarButton:{
+  tabBarButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10, 
+    padding: 10,
     borderRadius: 10,
     gap: 10,
   },
-  tabBarText:{
+  tabBarText: {
     fontSize: 14,
     fontWeight: 'bold',
     fontFamily: 'Poppins-Regular',
   },
-  tabBar:{
+  tabBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
@@ -160,14 +160,14 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   /**Circle Button Styles */
-  circleButton:{
+  circleButton: {
     width: 40,
     height: 40,
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  containerWithShadow:{
+  containerWithShadow: {
     shadowColor: '#1474E1',
     shadowOffset: {
       width: 0,
@@ -175,13 +175,12 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.15,
     shadowRadius: 50,
-    elevation: 20, 
+    elevation: 20,
     paddingHorizontal: HORIZONTAL_PADDING,
     paddingVertical: VERTICAL_PADDING,
     borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20
+    borderBottomRightRadius: 20,
   },
-
 });
 
 export default styles;

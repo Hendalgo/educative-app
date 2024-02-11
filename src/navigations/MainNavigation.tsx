@@ -10,7 +10,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {logedUser} from '@services/user';
 import User from '@interfaces/User';
 import {IAuthContext} from '@interfaces/Auth';
-import { TutorialProvider } from '@contexts/TutorialContext';
+import {TutorialProvider} from '@contexts/TutorialContext';
+import ROUTES from '@constants/routes';
 
 const MainNavigation = (): React.JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -19,19 +20,23 @@ const MainNavigation = (): React.JSX.Element => {
 
   useEffect(() => {
     if (!authState.isAuthenticated) {
-      AsyncStorage.getItem('token').then(token => {
-        if (token) {
-          logedUser(token).then((user: User) => {
-            if (user) {
-              authDispatch({type: 'login', payload: user});
-            }
-          }).finally(() => {
-            setIsLoading(false);
-          })
-        }
-      }).finally(() => {
-        setIsLoading(false);
-      });
+      AsyncStorage.getItem('token')
+        .then(token => {
+          if (token) {
+            logedUser(token)
+              .then((user: User) => {
+                if (user) {
+                  authDispatch({type: ROUTES.LOGIN, payload: user});
+                }
+              })
+              .finally(() => {
+                setIsLoading(false);
+              });
+          }
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     } else {
       setIsLoading(false);
     }

@@ -10,8 +10,8 @@ interface StackHeaderProps {
   back: any;
   title?: string;
   onPress?: () => void;
-  style?: ViewStyle,
-  iconColor?: string
+  style?: ViewStyle;
+  iconColor?: string;
 }
 
 const StackHeader = ({
@@ -20,30 +20,25 @@ const StackHeader = ({
   title,
   onPress,
   style,
-  iconColor
+  iconColor,
 }: StackHeaderProps): React.JSX.Element => {
   //@ts-ignore
   const {colors}: {colors: CustomColors} = useTheme();
   return (
-    <View
-      style={[
-        styles.headerContainer,
-        style? style: {}
-      ]}
-      >
-      {back ? 
-        (
-          <Pressable testID="back-button" onPress={() => onPress? onPress():navigation.goBack()}>
-            <BackIcon color={iconColor ||colors.neutral000} size={32} />
-          </Pressable>
-        ) : null
-      }
+    <View style={[styles.headerContainer, style ? style : {}]}>
+      {back ? (
+        <Pressable
+          testID="back-button"
+          onPress={() => (onPress ? onPress() : navigation.goBack())}>
+          <BackIcon color={iconColor || colors.neutral000} size={32} />
+        </Pressable>
+      ) : null}
       <Text
         style={[
           {
             color: colors.black,
           },
-          stackHeader.text
+          stackHeader.text,
         ]}>
         {title}
       </Text>
@@ -54,10 +49,9 @@ const StackHeader = ({
 
 export default StackHeader;
 
-
 const stackHeader = StyleSheet.create({
-  text:{
+  text: {
     fontSize: 18,
     fontFamily: 'Poppins-SemiBold',
-  }
-})
+  },
+});

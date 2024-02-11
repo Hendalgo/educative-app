@@ -8,12 +8,15 @@ import {CustomColors} from '../styles/themes';
 import Input from '@components/Input';
 import EmailIcon from '@assets/icons/EmailIcon';
 import Button from '@components/Button';
+import ROUTES from '@constants/routes';
+import { useTranslation } from 'react-i18next';
 
 const ForgotPasswordGetEmailScreen = ({
   navigation,
 }: {
   navigation: any;
 }): React.JSX.Element => {
+  const {t} = useTranslation();
   const {height}: {height: number} = useWindowDimensions();
   const animatedValue = useTranslateYAnimation(height);
   const maxHeight = 0.6;
@@ -57,7 +60,7 @@ const ForgotPasswordGetEmailScreen = ({
 
   const handleButton = () => {
     if (buttonDisabled === 'primary') {
-      navigation.navigate('ForgotPasswordGetCode');
+      navigation.navigate(ROUTES.VERIFY_CODE);
     }
   };
   return (
@@ -76,7 +79,7 @@ const ForgotPasswordGetEmailScreen = ({
             ...styles.textCenter,
             fontSize: 18,
           }}>
-          Recuperar contraseña
+          {t('forgotPassword.title')}
         </Text>
         <Text
           style={{
@@ -84,11 +87,9 @@ const ForgotPasswordGetEmailScreen = ({
             ...styles.textCenter,
             color: colors.neutral1500,
           }}>
-          Ingrese su dirección de correo electrónico para recibir un código de
-          verificación
         </Text>
         <Input
-          placeholder="Ingresa tu correo electrónico"
+          placeholder={t('forgotPassword.emailPLaceholder')}
           Icon={EmailIcon}
           iconColor={stylesInputs.iconColor}
           inputStyle={{
@@ -103,7 +104,7 @@ const ForgotPasswordGetEmailScreen = ({
           props={{}}
           onChangeText={handleEmailInput}
         />
-        <Button title="Enviar" type={buttonDisabled} onPress={handleButton} />
+        <Button title={t('forgotPassword.sendButton')} type={buttonDisabled} onPress={handleButton} />
       </Animated.View>
     </AuthScreen>
   );

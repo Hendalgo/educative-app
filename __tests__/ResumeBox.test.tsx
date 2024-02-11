@@ -1,7 +1,7 @@
 import {render} from '@testing-library/react-native';
 import React from 'react';
 import {useTheme} from '@react-navigation/native';
-import {StyleSheet, Text } from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import ResumeBox from '../src/components/ResumeBox';
 
 jest.mock('@react-navigation/native', () => ({
@@ -19,7 +19,11 @@ describe('ResumeBox', () => {
   });
 
   it('renders correctly', () => {
-    const {getByText} = render(<ResumeBox><Text>Test</Text></ResumeBox>);
+    const {getByText} = render(
+      <ResumeBox>
+        <Text>Test</Text>
+      </ResumeBox>,
+    );
     expect(getByText('Test')).toBeTruthy();
   });
 
@@ -31,9 +35,7 @@ describe('ResumeBox', () => {
     });
 
     const {getByTestId} = render(
-      <ResumeBox customStyles={customStyles.custom}>
-        test
-      </ResumeBox>
+      <ResumeBox customStyles={customStyles.custom}>test</ResumeBox>,
     );
 
     const box = getByTestId('resume-box');

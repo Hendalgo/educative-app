@@ -1,17 +1,20 @@
-import { useTheme } from "@react-navigation/native";
-import { CustomColors } from "@styles/themes";
-import React from "react";
-import {Pressable, Image, ImageSourcePropType } from "react-native";
-import styles from "@styles/index";
+import {useTheme} from '@react-navigation/native';
+import {CustomColors} from '@styles/themes';
+import React from 'react';
+import {Pressable, Image, ImageSourcePropType} from 'react-native';
+import styles from '@styles/index';
 
 interface CircleButtonProps {
   onPress: () => void;
   image: ImageSourcePropType;
 }
 
-const CircleButton = ({onPress, image}:CircleButtonProps): React.JSX.Element => {
+const CircleButton = ({
+  onPress,
+  image,
+}: CircleButtonProps): React.JSX.Element => {
   //@ts-ignore
-  const {colors}:{colors: CustomColors} = useTheme();
+  const {colors}: {colors: CustomColors} = useTheme();
   return (
     <Pressable
       testID="circle-button"
@@ -19,14 +22,8 @@ const CircleButton = ({onPress, image}:CircleButtonProps): React.JSX.Element => 
       style={{
         backgroundColor: colors.primary1600,
         ...styles.circleButton,
-      }}
-    >
-      <Image
-        source={image}
-        width={50}
-        height={50}
-
-      />
+      }}>
+      <Image source={image} width={50} height={50} />
     </Pressable>
   );
 };

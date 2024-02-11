@@ -1,4 +1,4 @@
-import { AUTH_REDUCER_ACTIONS } from '@constants/reducersActions';
+import {AUTH_REDUCER_ACTIONS} from '@constants/reducersActions';
 import {AuthAction, AuthState} from 'src/interfaces/Auth';
 
 const AuthReducer = (state: AuthState, action: AuthAction): AuthState => {

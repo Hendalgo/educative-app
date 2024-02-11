@@ -2,7 +2,7 @@ import {render, fireEvent} from '@testing-library/react-native';
 import React from 'react';
 import {useTheme} from '@react-navigation/native';
 import TabBar from '../src/components/TabBar';
-import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 
 jest.mock('@react-navigation/native', () => ({
   ...jest.requireActual('@react-navigation/native'),
@@ -16,17 +16,17 @@ describe('TabBar', () => {
     state: {
       index: 0,
       routes: [
-        { key: 'Home', name: 'Home' },
-        { key: 'Courses', name: 'Courses' },
-        { key: 'Quiz', name: 'Quiz' },
-        { key: 'User', name: 'User' },
+        {key: 'Home', name: 'Home'},
+        {key: 'Courses', name: 'Courses'},
+        {key: 'Quiz', name: 'Quiz'},
+        {key: 'User', name: 'User'},
       ],
     },
     descriptors: {
-      Home: { options: { tabBarLabel: 'Home' } },
-      Courses: { options: { tabBarLabel: 'Courses' } },
-      Quiz: { options: { tabBarLabel: 'Quiz' } },
-      User: { options: { tabBarLabel: 'User' } },
+      Home: {options: {tabBarLabel: 'Home'}},
+      Courses: {options: {tabBarLabel: 'Courses'}},
+      Quiz: {options: {tabBarLabel: 'Quiz'}},
+      User: {options: {tabBarLabel: 'User'}},
     },
     navigation: {
       navigate: mockNavigate,

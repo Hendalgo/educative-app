@@ -1,120 +1,129 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import {BackHandler, SafeAreaView, View, useWindowDimensions} from "react-native";
-import styles from "@styles/index";
-import Carousel from "@components/Carousel";
-import Button from "@components/Button";
-import TutorialElement from "@components/TutorialElement";
-import { NavigationProp, useTheme } from "@react-navigation/native";
-import { CustomColors } from "@styles/themes";
-import StackHeader from "@components/StackHeader";
-import { TutorialContext } from "@contexts/TutorialContext";
+import React, {useContext, useEffect, useRef, useState} from 'react';
+import {
+  BackHandler,
+  SafeAreaView,
+  View,
+  useWindowDimensions,
+} from 'react-native';
+import styles from '@styles/index';
+import Carousel from '@components/Carousel';
+import Button from '@components/Button';
+import TutorialElement from '@components/TutorialElement';
+import {useTheme} from '@react-navigation/native';
+import {CustomColors} from '@styles/themes';
+import StackHeader from '@components/StackHeader';
+import {TutorialContext} from '@contexts/TutorialContext';
+import { useTranslation } from 'react-i18next';
 
 const TutorialScreen = (): React.JSX.Element => {
   //@ts-ignore
-  const {colors}:{colors: CustomColors} = useTheme();
+  const {colors}: {colors: CustomColors} = useTheme();
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const {width} = useWindowDimensions();
-  const [textButton, setTextButton] = useState<string>("Continuar");
+  const [textButton, setTextButton] = useState<string>('Continuar');
   const [backButton, setBackButton] = useState<boolean>(false);
+  const {t} = useTranslation();
   //tutorial was watche? true was watched, false was not watched
-  const watchedTutorial:any = useContext(TutorialContext);
+  const watchedTutorial: any = useContext(TutorialContext);
   const carouselRef = useRef(null);
   const pageChange = (currentPage: number) => {
     currentPage === 0 ? setBackButton(false) : setBackButton(true);
-    currentPage === 2 ? setTextButton("Empecemos!!!") : setTextButton("Continuar");
-  }
-  const handleEnd = (currentPage: number) => {
-    console.log("End", currentPage);
-  }
+    currentPage === 2
+      ? setTextButton(t('tutorialButton.start'))
+      : setTextButton(t('tutorialButton.continue'));
+  };
   const handleBack = () => {
-    if(!isScrolling){ 
+    if (!isScrolling) {
       setIsScrolling(true);
       //@ts-ignore
       carouselRef.current?.scrollToPrevious();
     }
-  }
+  };
   const handleNext = () => {
-    if(!isScrolling){
+    if (!isScrolling) {
       setIsScrolling(true);
       //@ts-ignore
       carouselRef.current?.scrollToNext();
     }
-  }
+  };
   useEffect(() => {
-    const backAction =  BackHandler.addEventListener("hardwareBackPress", () => {
-      if(backButton){
-        if(!isScrolling) handleBack();
+    const backAction = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (backButton) {
+        if (!isScrolling) {
+          handleBack();
+        }
         return true;
       }
       return false;
-    })
+    });
 
     return () => backAction.remove();
-  }), [];
-  return(
+  }),
+    [];
+  return (
     <>
       <StackHeader
-          back={backButton}
-          navigation={{}}
-          onPress={()=>{
-            if(!isScrolling) handleBack();
-          }}
-          style={{
-            marginTop: 30
-          }}
-        />
+        back={backButton}
+        navigation={{}}
+        onPress={() => {
+          if (!isScrolling) {
+            handleBack();
+          }
+        }}
+        style={{
+          marginTop: 30,
+        }}
+      />
       <SafeAreaView
         style={{
           ...styles.tutorialScreenContainer,
           backgroundColor: colors.primary000,
-        }}
-      >
-        <View></View>
+        }}>
+        <View />
         <Carousel
-          width={width-40}
-          onScrollEnd={handleEnd}
+          width={width - 40}
           onScrollAnimationEnd={() => setIsScrolling(false)}
           onCurrentPageChange={pageChange}
-          ref={carouselRef}
-        >
+          ref={carouselRef}>
           <TutorialElement
-            title="Aprende donde estes."
-            description="Con esta aplicación seras capaz de complementar tus conocimientos sin importar el sitio en el que te encuentres."
+            title={t('tutorial.first.title')}
+            description={t('tutorial.first.description')}
             image={require('@assets/images/tutorial-1.png')}
           />
           <TutorialElement
-            title="No pierdas apuntes."
-            description="Haz anotaciones de las clases vistas y revísalas en el momento que desees sin el riesgo de que las pierdas."
+            title={t('tutorial.second.title')}
+            description={t('tutorial.second.description')}
             image={require('@assets/images/tutorial-2.png')}
           />
           <TutorialElement
-            title="Sube en el ranking."
-            description="Saca a flote tu competitividad y obten puntos de ranking por completar clases o hacer exámenes."
+            title={t('tutorial.third.title')}
+            description={t('tutorial.third.description')}
             image={require('@assets/images/tutorial-3.png')}
           />
         </Carousel>
         <View
           style={{
             flex: 0,
-            justifyContent: "center",
-          }}
-        >
+            justifyContent: 'center',
+          }}>
           <Button
-              title={textButton}
-              type="secondary"
-              onPress={()=>{
-                if(textButton === "Empecemos!!!"){
-                  //ToDo: Save in AsyncStorage that the user has already seen the tutorial
-                  watchedTutorial[1](true);
-                } else {
-                  if(!isScrolling) handleNext();
+            title={textButton}
+            type="secondary"
+            onPress={() => {
+              if (textButton === t('tutorialButton.start')) {
+                //ToDo: Save in AsyncStorage that the user has already seen the tutorial
+                watchedTutorial[1](true);
+              } else {
+                if (!isScrolling) {
+                  handleNext();
                 }
-              }}
-            />
+              }
+            }}
+          />
         </View>
       </SafeAreaView>
     </>
   );
-}
+};
 
 export default TutorialScreen;

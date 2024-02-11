@@ -14,8 +14,12 @@ import AuthScreen from './AuthScreen';
 import {AuthContext} from '@contexts/AuthContext';
 import {IAuthContext} from '@interfaces/Auth';
 import {login} from '@services/auth';
+import { useTranslation } from 'react-i18next';
+import { AUTH_REDUCER_ACTIONS } from '@constants/reducersActions';
+import ROUTES from '@constants/routes';
 
 const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
+  const {t} = useTranslation();
   //@ts-ignore
   //Custom colors from the theme
   const {colors}: {colors: CustomColors} = useTheme();
@@ -106,7 +110,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
       login(email, password)
         .then(user => {
           if (user) {
-            authDispatch({type: 'login', payload: user});
+            authDispatch({type: AUTH_REDUCER_ACTIONS.LOGIN, payload: user});
           }
         })
         .catch((error: any) => {
@@ -132,11 +136,11 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
               color: colors.black,
             },
           ]}>
-          Iniciar Sesión
+          {t('login.title')}
         </Text>
         {/*Email Input*/}
         <Input
-          placeholder="Ingresa tu correo electrónico"
+          placeholder={t('login.emailPlaceholder')}
           Icon={EmailIcon}
           iconColor={stylesInputs.iconColor}
           inputStyle={{
@@ -151,7 +155,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
         />
         {/*Password Input*/}
         <Input
-          placeholder="Enter your password"
+          placeholder={t('login.passwordPlaceholder')}
           inputStyle={{
             borderWidth: 1,
             backgroundColor: stylesInputs.passwordInputColor,
@@ -172,12 +176,12 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
             marginBottom: 20,
           }}>
           <Pressable
-            onPress={() => navigation.navigate('ForgotPasswordGetEmail')}>
+            onPress={() => navigation.navigate(ROUTES.FORGOT_PASSWORD_GET_EMAIL)}>
             <Text
               style={{
                 color: colors.neutral1200,
               }}>
-              ¿Olvidaste tu contraseña?
+              {t('login.forgotPassword')}
             </Text>
           </Pressable>
         </View>
@@ -203,7 +207,7 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
             marginTop: 10,
           }}>
           <Button
-            title="Continuar"
+            title={t('login.loginButton')}
             type={buttonDisabled}
             onPress={() => handleLogin()}
           />

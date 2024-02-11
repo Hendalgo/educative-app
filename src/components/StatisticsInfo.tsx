@@ -1,7 +1,7 @@
-import { useTheme } from "@react-navigation/native";
-import { CustomColors } from "@styles/themes";
-import React from "react";
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import {useTheme} from '@react-navigation/native';
+import {CustomColors} from '@styles/themes';
+import React from 'react';
+import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
 
 interface StatisticsInfoProps {
   title: string;
@@ -9,13 +9,15 @@ interface StatisticsInfoProps {
   image: ImageSourcePropType;
 }
 
-const StatisticsInfo = ({title, subtitle, image}:StatisticsInfoProps): React.JSX.Element => {
+const StatisticsInfo = ({
+  title,
+  subtitle,
+  image,
+}: StatisticsInfoProps): React.JSX.Element => {
   //@ts-ignore
-  const {colors}:{colors: CustomColors} = useTheme();
+  const {colors}: {colors: CustomColors} = useTheme();
   return (
-    <View
-      style={styles.statisticsInfoContainer}
-    >
+    <View style={styles.statisticsInfoContainer}>
       <Image
         testID="statistics-info-image"
         source={image}
@@ -25,27 +27,25 @@ const StatisticsInfo = ({title, subtitle, image}:StatisticsInfoProps): React.JSX
       <View>
         <Text
           testID="statistics-info-title"
-          style={[styles.statisticsInfoTitle, {color: colors.primary000}]}
-        >
+          style={[styles.statisticsInfoTitle, {color: colors.primary000}]}>
           {title}
         </Text>
         <Text
           testID="statistics-info-subtitle"
-          style={[styles.statisticsInfoSubtitle, {color: colors.neutral1200}]}
-        >
+          style={[styles.statisticsInfoSubtitle, {color: colors.neutral1200}]}>
           {subtitle}
         </Text>
       </View>
     </View>
   );
-}
+};
 
 export default StatisticsInfo;
 
 const styles = StyleSheet.create({
   statisticsInfoContainer: {
-    flexDirection: "row",
-    alignItems: "flex-start",
+    flexDirection: 'row',
+    alignItems: 'flex-start',
     gap: 5,
   },
   statisticsInfoTitle: {
@@ -55,5 +55,5 @@ const styles = StyleSheet.create({
   statisticsInfoSubtitle: {
     fontSize: 12,
     fontFamily: 'Poppins-Regular',
-  }
+  },
 });

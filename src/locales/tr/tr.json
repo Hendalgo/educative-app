@@ -1,0 +1,72 @@
+{
+  "verifyEmail": {
+    "title": "E-posta adresinizi doğrulayın",
+    "subtitle": "{{email}} e-posta adresinizi doğrulayın.",
+    "wrongCode": "Kod yanlış. Lütfen tekrar deneyin."
+  },
+  "tutorialButton":{
+    "continue": "Devam et",
+    "start": "Hadi başlayalım!!!"
+  },
+  "tutorial": {
+    "first": {
+      "title": "Nerede olursanız olun öğrenin.",
+      "description": "Bu uygulama ile bilgilerinizi nerede olursanız olun tamamlayabilirsiniz."
+    },
+    "second": {
+      "title": "Notları kaybetme.",
+      "description": "Görülen derslerin notlarını alın ve istediğiniz zaman onları gözden geçirin, kaybetme riski olmadan."
+    },
+    "third": {
+      "title": "Sıralamada yüksel.",
+      "description": "Rekabetçiliğinizi ortaya çıkarın ve dersleri tamamlayarak veya sınavlar yaparak sıralama puanları alın."
+    }
+  },
+  "login": {
+    "title": "Oturum aç",
+    "emailPlaceholder": "E-postanızı girin",
+    "passwordPlaceholder": "Şifrenizi girin",
+    "forgotPassword": "Şifrenizi mi unuttunuz?",
+    "loginButton": "Oturum aç",
+    "register": "Kayıt ol",
+    "error": "E-posta veya şifre yanlış"
+  },
+  "welcome": "Merhaba,",
+  "forgotPassword": {
+    "title": "Şifreyi kurtar",
+    "subtitle": "Doğrulama kodu almak için e-posta adresinizi girin",
+    "emailPlaceholder": "E-postanızı girin",
+    "sendButton": "Gönder",
+    "back": "Geri"
+  },
+  "changePassword":{
+    "title": "Şifreyi değiştir",
+    "subtitle": "Yeni şifreniz, daha önce kullanılan şifreden farklı olmalıdır.",
+    "passwordPlaceholder": "Yeni şifrenizi girin",
+    "confirmPasswordPlaceholder": "Yeni şifrenizi onaylayın",
+    "button": "Değiştir",
+    "error": "Şifreler uyuşmuyor"
+  },
+  "tabs":{
+    "home": "Ana Sayfa",
+    "courses": "Dersler",
+    "quizzes": "Sınavlar",
+    "ranking": "Sıralama",
+    "profile": "Profil"
+  },
+  "resumeBox": {
+    "title": "Haftalık istatistikleriniz",
+    "first":{
+      "title": "{{hours}} Saat",
+      "subtitle": "çalışma"
+    },
+    "second":{
+      "title": "{{approved}} Sınavlar",
+      "subtitle": "onaylandı"
+    },
+    "third":{
+      "title": "{{points}} Puan",
+      "subtitle": "sıralama"
+    }
+  }
+}

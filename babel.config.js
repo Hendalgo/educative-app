@@ -19,9 +19,10 @@ module.exports = {
           '@reducers': './src/reducers',
           '@interfaces': './src/interfaces',
           '@constants': './src/constants',
+          '@locales': './src/locales',
         },
       },
     ],
-    'react-native-reanimated/plugin'
+    'react-native-reanimated/plugin',
   ],
 };

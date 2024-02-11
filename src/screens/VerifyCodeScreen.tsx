@@ -7,7 +7,8 @@ import styles from '@styles/index';
 import AuthScreen from './AuthScreen';
 import Button from '@components/Button';
 import IndividualInputs from '@components/IndividualInputs';
-import useFormatTime from '@hooks/useFormatTime';
+import {useTranslation} from 'react-i18next';
+import formatTime from '@utils/formatTime';
 
 // Setting the time to resend the code
 const timeToResenCode = 10;
@@ -24,6 +25,7 @@ const VerifyCodeScreen = ({
   // State variables
   const [inputValues, setInputValues] = React.useState<number[]>([]);
   const [buttonDisabled, setButtonDisabled] = React.useState<any>('disable');
+  const {t} = useTranslation();
   const [timeToResend, setTimeToResend] =
     React.useState<number>(timeToResenCode);
   const [resentButtonStyles, setResentButtonStyles] = React.useState<
@@ -53,7 +55,7 @@ const VerifyCodeScreen = ({
         if (inputValues.join('') === '2222') {
           navigation.navigate('ChangePasswordScreen');
         } else {
-          setError('El código es incorrecto');
+          setError(t('verifyEmailTitle.wrongCode'));
         }
         setButtonDisabled('primary');
       }, 1000);
@@ -105,7 +107,7 @@ const VerifyCodeScreen = ({
             },
             styles.textCenter,
           ]}>
-          Verifica tu email
+          {t('verifyEmailTitle.title')}
         </Text>
         <Text
           style={[
@@ -117,7 +119,7 @@ const VerifyCodeScreen = ({
             },
             styles.textCenter,
           ]}>
-          Ingrese el código de 4 digitos enviado a hendalgo@unimar.edu.ve
+          {t('verifyEmailTitle.subtitle', {email: 'hendalgo@hendalgo.edu'})}
         </Text>
         {/*Introduce verification code*/}
         <View>
@@ -147,7 +149,7 @@ const VerifyCodeScreen = ({
             ]}>
             {timeToResend === 0
               ? 'Reenviar código'
-              : `Reenviar código en ${useFormatTime(timeToResend)}`}
+              : `Reenviar código en ${formatTime(timeToResend)}`}
           </Text>
         </Pressable>
         {/*Error message*/}

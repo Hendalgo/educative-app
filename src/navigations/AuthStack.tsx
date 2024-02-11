@@ -35,10 +35,7 @@ const AuthStack = (): React.JSX.Element => {
           name={ROUTE.FORGOT_PASSWORD_GET_EMAIL}
           component={ForgotPasswordGetEmailScreen}
         />
-        <Stack.Screen
-          name={ROUTE.VERIFY_CODE}
-          component={VerifyCodeScreen}
-        />
+        <Stack.Screen name={ROUTE.VERIFY_CODE} component={VerifyCodeScreen} />
         <Stack.Screen
           name={ROUTE.RESET_PASSWORD}
           component={ChangePasswordScreen}

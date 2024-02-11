@@ -24,6 +24,7 @@
       "@reducers/*": ["./src/reducers/*"],
       "@interfaces/*": ["./src/interfaces/*"],
       "@services/*": ["./src/services/*"],
+      "@locales/*": ["./src/locales/*"],
     }
   },
 }

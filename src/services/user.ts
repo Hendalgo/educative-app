@@ -1,4 +1,4 @@
-import API_INSTANCE from '@constants/Api';
+import API_INSTANCE from '@constants/api';
 import User from '@interfaces/User';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export const getUser = async (id: string) => {

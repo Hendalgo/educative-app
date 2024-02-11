@@ -18,13 +18,23 @@ describe('CircleButton', () => {
   });
 
   it('renders correctly', () => {
-    const {getByTestId} = render(<CircleButton onPress={jest.fn()} image={require('@assets/icons/trophy-icon.png')} />);
+    const {getByTestId} = render(
+      <CircleButton
+        onPress={jest.fn()}
+        image={require('@assets/icons/trophy-icon.png')}
+      />,
+    );
     expect(getByTestId('circle-button')).toBeTruthy();
   });
 
   it('responds to press events', () => {
     const onPressMock = jest.fn();
-    const {getByTestId} = render(<CircleButton onPress={onPressMock} image={require('@assets/icons/trophy-icon.png')} />);
+    const {getByTestId} = render(
+      <CircleButton
+        onPress={onPressMock}
+        image={require('@assets/icons/trophy-icon.png')}
+      />,
+    );
 
     fireEvent.press(getByTestId('circle-button'));
     expect(onPressMock).toHaveBeenCalled();

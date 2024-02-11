@@ -8,6 +8,8 @@ import AuthScreen from './AuthScreen';
 import Button from '@components/Button';
 import Input from '@components/Input';
 import useTranslateYAnimation from '@hooks/useTranslateYAnimation';
+import { useTranslation } from 'react-i18next';
+import ROUTES from '@constants/routes';
 
 // Defining the ChangePasswordScreen component
 const ChangePasswordScreen = ({
@@ -15,6 +17,7 @@ const ChangePasswordScreen = ({
 }: {
   navigation: any;
 }): React.JSX.Element => {
+  const {t} = useTranslation();
   //@ts-ignore
   const {colors}: {colors: CustomColors} = useTheme();
 
@@ -103,7 +106,7 @@ const ChangePasswordScreen = ({
             color: colors.black,
             ...styles.textCenter,
           }}>
-          Cambiar contraseña
+          {t('changePassword.title')}
         </Text>
         <Text
           style={{
@@ -111,11 +114,10 @@ const ChangePasswordScreen = ({
             ...styles.textCenter,
             color: colors.neutral900,
           }}>
-          Su nueva contraseña debe ser diferente de la contraseña utilizada
-          anteriormente
+          {t('changePassword.subtitle')}
         </Text>
         <Input
-          placeholder="Contraseña"
+          placeholder={t('changePassword.passwordPlaceholder')}
           secureTextEntry={true}
           value={inputValues[0]}
           inputStyle={{
@@ -129,7 +131,7 @@ const ChangePasswordScreen = ({
         />
         <Input
           value={inputValues[1]}
-          placeholder="Confirmar contraseña"
+          placeholder={t('changePassword.confirmPasswordPlaceholder')}
           secureTextEntry={true}
           inputStyle={{
             ...confirmPasswordStyles,
@@ -153,7 +155,7 @@ const ChangePasswordScreen = ({
           </Text>
         )}
         <Button
-          title="Cambiar contraseña"
+          title={t('changePassword.button')}
           onPress={() => {
             if (buttonDisabled === 'primary') {
               setButtonDisabled('disable');
@@ -161,9 +163,9 @@ const ChangePasswordScreen = ({
               setTimeout(() => {
                 // Check if passwords are equal
                 if (inputValues[0] === inputValues[1]) {
-                  navigation.navigate('Login');
+                  navigation.navigate(ROUTES.LOGIN);
                 } else {
-                  setError('Las contraseñas no coinciden');
+                  setError(t('changePassword.error'));
                 }
                 setButtonDisabled('primary');
               }, 1000);

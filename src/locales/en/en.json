@@ -1,0 +1,72 @@
+{
+  "verifyEmail": {
+    "title": "Verify your email address",
+    "subtitle": "Verify your email address {{email}}.",
+    "wrongCode": "The code is incorrect. Please try again."
+  },
+  "tutorialButton":{
+    "continue": "Continue",
+    "start": "Let's start!!!"
+  },
+  "tutorial": {
+    "first": {
+      "title": "Learn wherever you are.",
+      "description": "With this application you will be able to complement your knowledge no matter where you are."
+    },
+    "second": {
+      "title": "Don't lose notes.",
+      "description": "Take notes of the classes seen and review them whenever you want without the risk of losing them."
+    },
+    "third": {
+      "title": "Climb in the ranking.",
+      "description": "Bring out your competitiveness and get ranking points by completing classes or taking exams."
+    }
+  },
+  "login": {
+    "title": "Sing In",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot your password?",
+    "loginButton": "Sing In",
+    "register": "Register",
+    "error": "Incorrect email or password"
+  },
+  "welcome": "Hello,",
+  "forgotPassword": {
+    "title": "Recover password",
+    "subtitle": "Enter your email address to receive a verification code",
+    "emailPlaceholder": "Enter your email",
+    "sendButton": "Send",
+    "back": "Back"
+  },
+  "changePassword":{
+    "title": "Change password",
+    "subtitle": "Your new password must be different from the one used before.",
+    "passwordPlaceholder": "Enter your new password",
+    "confirmPasswordPlaceholder": "Confirm your new password",
+    "button": "Change",
+    "error": "Passwords do not match"
+  },
+  "tabs":{
+    "home": "Home",
+    "courses": "Courses",
+    "quizzes": "Quizzes",
+    "ranking": "Ranking",
+    "profile": "Profile"
+  },
+  "resumeBox": {
+    "title": "Your weekly statistics",
+    "first":{
+      "title": "{{hours}} Hours",
+      "subtitle": "of study"
+    },
+    "second":{
+      "title": "{{approved}} Quizz",
+      "subtitle": "approved"
+    },
+    "third":{
+      "title": "{{points}} Points",
+      "subtitle": "of ranking"
+    }
+  }
+}
