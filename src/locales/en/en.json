@@ -2,7 +2,9 @@
   "verifyEmail": {
     "title": "Verify your email address",
     "subtitle": "Verify your email address {{email}}.",
-    "wrongCode": "The code is incorrect. Please try again."
+    "wrongCode": "The code is incorrect. Please try again.",
+    "resendCode": "Resend code",
+    "resendCodeIn": "Resend code in."
   },
   "tutorialButton":{
     "continue": "Continue",

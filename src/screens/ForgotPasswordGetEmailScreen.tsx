@@ -89,7 +89,7 @@ const ForgotPasswordGetEmailScreen = ({
           }}>
         </Text>
         <Input
-          placeholder={t('forgotPassword.emailPLaceholder')}
+          placeholder={t('forgotPassword.emailPlaceholder')}
           Icon={EmailIcon}
           iconColor={stylesInputs.iconColor}
           inputStyle={{

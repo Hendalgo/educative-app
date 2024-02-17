@@ -2,7 +2,9 @@
   "verifyEmail": {
     "title": "E-posta adresinizi doğrulayın",
     "subtitle": "{{email}} e-posta adresinizi doğrulayın.",
-    "wrongCode": "Kod yanlış. Lütfen tekrar deneyin."
+    "wrongCode": "Kod yanlış. Lütfen tekrar deneyin.",
+    "resendCode": "Kodu tekrar gönder",
+    "resendCodeIn": "Kodu tekrar gönder"
   },
   "tutorialButton":{
     "continue": "Devam et",

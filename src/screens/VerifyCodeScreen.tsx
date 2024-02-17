@@ -55,7 +55,7 @@ const VerifyCodeScreen = ({
         if (inputValues.join('') === '2222') {
           navigation.navigate('ChangePasswordScreen');
         } else {
-          setError(t('verifyEmailTitle.wrongCode'));
+          setError(t('verifyEmail.wrongCode'));
         }
         setButtonDisabled('primary');
       }, 1000);
@@ -107,7 +107,7 @@ const VerifyCodeScreen = ({
             },
             styles.textCenter,
           ]}>
-          {t('verifyEmailTitle.title')}
+          {t('verifyEmail.title')}
         </Text>
         <Text
           style={[
@@ -119,7 +119,7 @@ const VerifyCodeScreen = ({
             },
             styles.textCenter,
           ]}>
-          {t('verifyEmailTitle.subtitle', {email: 'hendalgo@hendalgo.edu'})}
+          {t('verifyEmail.subtitle', {email: 'hendalgo@hendalgo.edu'})}
         </Text>
         {/*Introduce verification code*/}
         <View>
@@ -148,8 +148,8 @@ const VerifyCodeScreen = ({
               },
             ]}>
             {timeToResend === 0
-              ? 'Reenviar código'
-              : `Reenviar código en ${formatTime(timeToResend)}`}
+              ? t('verifyEmail.resendCode')
+              : `${t('verifyEmail.resendCodeIn')} ${formatTime(timeToResend)}`}
           </Text>
         </Pressable>
         {/*Error message*/}
