@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 'auto',
   },
   bodyTutorial: {
     fontFamily: 'Poppins-Regular',
