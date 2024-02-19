@@ -14,8 +14,8 @@ const TutorialNavigationStack = (): React.JSX.Element => {
   const [tutorial, setTutorial]: any = useContext(TutorialContext);
 
   useEffect(() => {
-    AsyncStorage.getItem('tutorial').then(tutorial => {
-      if (tutorial) {
+    AsyncStorage.getItem('tutorial').then(viewed => {
+      if (viewed) {
         setTutorial(true);
         setIsLoading(false);
       } else {

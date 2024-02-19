@@ -7,7 +7,7 @@ import styles from '@styles/index';
 import {NavigationProp, useTheme} from '@react-navigation/native';
 import ResumeBox from '@components/ResumeBox';
 import ROUTES from '@constants/routes';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 const HomeScreen = ({
   navigation,

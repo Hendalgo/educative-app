@@ -9,7 +9,7 @@ import Input from '@components/Input';
 import EmailIcon from '@assets/icons/EmailIcon';
 import Button from '@components/Button';
 import ROUTES from '@constants/routes';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 const ForgotPasswordGetEmailScreen = ({
   navigation,
@@ -86,8 +86,8 @@ const ForgotPasswordGetEmailScreen = ({
             ...styles.subtitle,
             ...styles.textCenter,
             color: colors.neutral1500,
-          }}>
-        </Text>
+          }}
+        />
         <Input
           placeholder={t('forgotPassword.emailPlaceholder')}
           Icon={EmailIcon}
@@ -104,7 +104,11 @@ const ForgotPasswordGetEmailScreen = ({
           props={{}}
           onChangeText={handleEmailInput}
         />
-        <Button title={t('forgotPassword.sendButton')} type={buttonDisabled} onPress={handleButton} />
+        <Button
+          title={t('forgotPassword.sendButton')}
+          type={buttonDisabled}
+          onPress={handleButton}
+        />
       </Animated.View>
     </AuthScreen>
   );

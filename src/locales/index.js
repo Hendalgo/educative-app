@@ -16,7 +16,7 @@ i18n.use(initReactI18next).init({
     },
     tr: {
       translation: tr,
-    }
+    },
   },
   lng: 'es',
   fallbackLng: 'es',

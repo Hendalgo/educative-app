@@ -13,7 +13,7 @@ import {useTheme} from '@react-navigation/native';
 import {CustomColors} from '@styles/themes';
 import StackHeader from '@components/StackHeader';
 import {TutorialContext} from '@contexts/TutorialContext';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 const TutorialScreen = (): React.JSX.Element => {
   //@ts-ignore

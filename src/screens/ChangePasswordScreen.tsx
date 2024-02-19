@@ -8,7 +8,7 @@ import AuthScreen from './AuthScreen';
 import Button from '@components/Button';
 import Input from '@components/Input';
 import useTranslateYAnimation from '@hooks/useTranslateYAnimation';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import ROUTES from '@constants/routes';
 
 // Defining the ChangePasswordScreen component

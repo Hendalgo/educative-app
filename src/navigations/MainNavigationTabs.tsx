@@ -4,7 +4,7 @@ import HomeScreen from '@screens/HomeScreen';
 import ROUTES from '@constants/routes';
 import TabBar from '@components/TabBar';
 import HomeStackNavigation from './HomeStackNavigation';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 const Tab = createBottomTabNavigator();
 

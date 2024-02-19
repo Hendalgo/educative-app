@@ -14,8 +14,8 @@ import AuthScreen from './AuthScreen';
 import {AuthContext} from '@contexts/AuthContext';
 import {IAuthContext} from '@interfaces/Auth';
 import {login} from '@services/auth';
-import { useTranslation } from 'react-i18next';
-import { AUTH_REDUCER_ACTIONS } from '@constants/reducersActions';
+import {useTranslation} from 'react-i18next';
+import {AUTH_REDUCER_ACTIONS} from '@constants/reducersActions';
 import ROUTES from '@constants/routes';
 
 const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
@@ -176,7 +176,9 @@ const LoginScreen = ({navigation}: {navigation?: any}): React.JSX.Element => {
             marginBottom: 20,
           }}>
           <Pressable
-            onPress={() => navigation.navigate(ROUTES.FORGOT_PASSWORD_GET_EMAIL)}>
+            onPress={() =>
+              navigation.navigate(ROUTES.FORGOT_PASSWORD_GET_EMAIL)
+            }>
             <Text
               style={{
                 color: colors.neutral1200,

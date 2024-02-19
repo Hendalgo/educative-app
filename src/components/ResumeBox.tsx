@@ -4,7 +4,7 @@ import styles from '@styles/index';
 import {CustomColors} from '@styles/themes';
 import {useTheme} from '@react-navigation/native';
 import StatisticsInfo from './StatisticsInfo';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 const ResumeBox = ({
   children,
