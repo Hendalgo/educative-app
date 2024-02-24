@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, ImageSourcePropType, Pressable, StyleProp} from 'react-native';
+import {Image, ImageSourcePropType, Pressable, StyleProp, StyleSheet} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {CustomColors} from 'src/styles/themes';
 import {Text} from 'react-native';
@@ -110,20 +110,14 @@ const Button = ({
       {image && (
         <Image
           source={image}
-          style={{
-            resizeMode: 'contain',
-            alignSelf: 'center',
-          }}
+          style={buttonStyles.image}
         />
       )}
       {title && (
         <Text
           style={{
             ...styleText,
-            fontSize: 16,
-            fontFamily: 'Poppins-Regular',
-            textAlign: 'center',
-            textAlignVertical: 'center',
+            ...buttonStyles.text,
           }}>
           {title}
         </Text>
@@ -133,3 +127,16 @@ const Button = ({
 };
 
 export default Button;
+
+const buttonStyles = StyleSheet.create({
+  image: {
+    resizeMode: 'contain',
+    alignSelf: 'center',
+  },
+  text: {
+    fontSize: 16,
+    fontFamily: 'Poppins-Regular',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+  },
+});

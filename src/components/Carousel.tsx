@@ -62,7 +62,6 @@ const Carousel = React.forwardRef(
     }
   }; */
     const scrollToNext = () => {
-      //@ts-ignore
       scrollViewRef.current?.scrollTo({
         x: scrollX._value + width,
         animated: true,
@@ -70,7 +69,6 @@ const Carousel = React.forwardRef(
     };
 
     const scrollToPrevious = () => {
-      //@ts-ignore
       scrollViewRef.current?.scrollTo({
         x: scrollX._value - width,
         animated: true,
